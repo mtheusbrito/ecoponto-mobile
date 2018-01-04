@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cooperativa.ideias.ascender.ecoponto.Activity.Camera_Activity">
+
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        tools:ignore="MissingConstraints,UselessLeaf"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="-39dp">
+
+        <ImageView
+            android:id="@+id/imageCamera"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/darker_gray"
+            tools:ignore="ContentDescription" />
+
+        <Button
+            android:id="@+id/idcamerabtn"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:onClick="OnImageClick"
+            android:text="@string/btnCamera"
+            android:layout_below="@+id/imageCamera"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
+
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnemail"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btnemail"
+        android:onClick="Clickemail"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="447dp" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>

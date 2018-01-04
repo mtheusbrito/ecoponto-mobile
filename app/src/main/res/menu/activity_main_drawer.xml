@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_coleta"
+            android:icon="@drawable/ic_location_on_black_24dp"
+            android:title="Pontos de coleta seletiva" />
+        <item
+            android:id="@+id/nav_oleo"
+            android:icon="@drawable/ic_location_on_black_24dp"
+            android:title="Onde deixar seu óleo ?" />
+
+        <item
+            android:id="@+id/nav_horario"
+            android:icon="@drawable/ic_timer_black_24dp"
+            android:title="Horários de coleta"/>
+
+       <!-- <item android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_camera_enhance_black_24dp"
+            android:title="Proteja Os Eco Pontos"/>-->
+        <item
+            android:id="@+id/nav_sobre"
+            android:icon="@drawable/ic_developer_mode_black_24dp"
+            android:title="Sobre" />
+    </group>
+
+    <item android:title="Contato">
+        <menu>
+
+            <item
+                android:id="@+id/nav_catadores"
+                android:icon="@drawable/ic_nature_people_black_24dp"
+                android:title="ASCItaperuna" />
+            <item
+                android:id="@+id/nav_ascender"
+                android:icon="@drawable/ic_lightbulb_outline_black_24dp"
+                android:title="Ascender Ideias" />
+        </menu>
+    </item>
+
+</menu>

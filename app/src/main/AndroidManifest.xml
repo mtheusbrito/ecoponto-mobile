@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cooperativa.ideias.ascender.ecoponto">
+
+<!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+
+         Permissões par Aplicação
+    -->
+
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.INTERNET" />
+<!--<uses-permission android:name="android.permission.CAMERA"/>-->
+<!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
+<uses-permission android:name="com.google.android.apps.maps.permission.PREFETCH" />
+
+    <!--// Fim das Permissões-->
+
+
+<application android:allowBackup="true"
+    android:icon="@mipmap/iconenovo"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme">
+
+
+    <meta-data android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+
+
+    <activity android:name=".Activity.Activity.Activity.MainActivity"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme.NoActionBar">
+
+        <intent-filter>
+
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+            <!-- Linha Nova Adcionada Para Maps Offline -->
+            <action android:name="com.google.android.apps.maps.PREFETCH" /> <!-- Linha Nova Para Maps Offline -->
+
+        </intent-filter>
+    </activity>
+
+    <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+    <meta-data android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyDPLY-wWU-vtAIgyIMNmxj5oS2dIYok0_w" />
+
+    <!-- Mapa Nosso Óleo Nosso Rio-->
+    <Fragment android:name=".Activity.MapsActivityNsr"
+        android:label="@string/title_activity_maps" />
+    <!-- //Mapa Nosso Óleo Nosso Rio-->
+
+
+    <!-- Mapa Coleta Seletiva-->
+    <Fragment android:name=".Activity.MapsActivityClt" android:label="@string/app_name"
+        android:process=":SecondMapProcess" />
+    <!-- //Mapa Coleta Seletiva-->
+
+    <!--Mapa Ascender Ideias-->
+    <Fragment android:name=".Activity.MapsAscenderIdeias" android:label="Ascender Ideias"
+        android:process=":ThirdMapProcess" />
+    <!--//Mapa Ascender Ideias-->
+
+
+    <!--Mapa Associação de Catadores de Itaperuna-->
+    <Fragment android:name=".Activity.MapsAscenderIdeias" android:label="Associação de Catadores de Itaperuna"
+        android:process=":FourMapProcess" />
+    <!--//Mapa Associação de Catadores de Itaperuna-->
+
+    <activity android:name=".Activity.Activity.Activity.AscenderIdeias" android:theme="@style/AppCompat.TelaCheia"> <!-- App Theme retirado da Action AscenderIdeias -->
+
+    </activity>
+    <activity android:name=".Activity.Activity.Activity.Sobre" android:theme="@style/AppCompat.TelaCheia"> <!-- App Theme retirado da Action AscenderIdeias -->
+        >
+    </activity>
+    <activity android:name=".Activity.Activity.Activity.ASCItaperuna" android:theme="@style/AppCompat.TelaCheia"> <!-- App Theme retirado da Action AscenderIdeias -->
+        >
+    </activity>
+</application>
+
+
+</manifest>
