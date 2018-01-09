@@ -19,11 +19,13 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -31,7 +33,7 @@ public class MapsActivityNsr extends SupportMapFragment implements OnMapReadyCal
         LocationListener, ActivityCompat.OnRequestPermissionsResultCallback,
         GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerDragListener {
 
-    private GoogleMap mMap;
+    //private GoogleMap mMap;
     // private Marker currentLocationMaker;
     // private LatLng currentLocationLatLong;
     //private DatabaseReference mDatabase;
@@ -48,8 +50,9 @@ public class MapsActivityNsr extends SupportMapFragment implements OnMapReadyCal
     private GoogleMap map;
     private ProgressDialog progressDialog;
     private LocationManager lm;
-    private LatLng myLocation;// variavel zoom automatico
-
+    //private LatLng myLocation;// variavel zoom automatico
+    private LatLngBounds ITAPERUNA = new LatLngBounds(
+            new LatLng(-21.239822, -41.844152), new LatLng(-21.177369, -41.935818));
 
 
     private static String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION,
@@ -151,6 +154,7 @@ public class MapsActivityNsr extends SupportMapFragment implements OnMapReadyCal
         map.getUiSettings().setZoomGesturesEnabled(true);
         map.setOnInfoWindowClickListener(this);
 
+        //map.moveCamera(CameraUpdateFactory.newLatLngZoom(this.ITAPERUNA.getCenter(), 14));
 
         map.addMarker(new MarkerOptions().position(new LatLng(-21.2063722, -41.890727))
                 .title("EcoPonto").snippet("Matriz São José do Avaí"));
@@ -255,14 +259,8 @@ public class MapsActivityNsr extends SupportMapFragment implements OnMapReadyCal
         map.addMarker(new MarkerOptions().position(new LatLng(-21.1976944, -41.8797811))
                 .title("EcoPonto"). snippet("Escola Padre Geraldo"));
 
-
-
-
-
-
-
-
-
+        CameraUpdateFactory.newLatLngZoom( new LatLng(-21.2159481,-42.1704429), (float) 14.0);
+        CameraUpdateFactory.zoomTo(14.0f);
     }
 
 
