@@ -244,7 +244,7 @@ public class MapsActivityNsr extends SupportMapFragment implements OnMapReadyCal
 
         //Localização Igreja N.S de Lurdes...
         map.addMarker(new MarkerOptions().position(new LatLng(-21.1936083, -41.9010794))
-                .title("EcoPonto"). snippet("Igreja N.S de Lurdes"));
+                .title("EcoPonto"). snippet("Igreja N.S de Lourdes"));
 
         //Localização Ponto de Vista(Loteamente Dr.Edgar...
         map.addMarker(new MarkerOptions().position(new LatLng(-21.1919099, -41.9106979))
@@ -258,6 +258,31 @@ public class MapsActivityNsr extends SupportMapFragment implements OnMapReadyCal
         //Localização Escola Padre Geraldo...
         map.addMarker(new MarkerOptions().position(new LatLng(-21.1976944, -41.8797811))
                 .title("EcoPonto"). snippet("Escola Padre Geraldo"));
+
+        map.addMarker(new MarkerOptions().position(new LatLng(-21.206375, -41.885411))
+                .title("EcoPonto"). snippet("Pracinha do Horto"));
+
+        map.addMarker(new MarkerOptions().position(new LatLng(-21.187656, -41.891286))
+                .title("EcoPonto"). snippet("COLÉGIO LIGIERO"));
+
+        map.addMarker(new MarkerOptions().position(new LatLng(-21.193424, -41.914827))
+                .title("EcoPonto"). snippet("IGREJA DA DIVINA MISERICÓRDIA"));
+
+        map.addMarker(new MarkerOptions().position(new LatLng(-21.210876, -41.884746))
+                .title("EcoPonto"). snippet("PRACA SANTOS DUMONT"));
+
+        map.addMarker(new MarkerOptions().position(new LatLng(-21.200382, -41.898646))
+                .title("EcoPonto"). snippet("Rodoviária"));
+
+        map.addMarker(new MarkerOptions().position(new LatLng(-21.200382, -41.898646))
+                .title("EcoPonto"). snippet("Rodoviária"));
+
+        map.addMarker(new MarkerOptions().position(new LatLng(-21.2032183,-41.908186))
+                .title("EcoPonto"). snippet("RUA PROF LEIDE RIBEIRO DUTRA"));
+
+        map.addMarker(new MarkerOptions().position(new LatLng(-21.2129115,-41.8744852))
+                .title("EcoPonto"). snippet("Rua Pedro Soares"));
+
 
         CameraUpdateFactory.newLatLngZoom( new LatLng(-21.2159481,-42.1704429), (float) 14.0);
         CameraUpdateFactory.zoomTo(14.0f);
