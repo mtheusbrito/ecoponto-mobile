@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">EcoPonto</string>
 
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -72,4 +71,119 @@
     <string name="textviewversaodados">Versão 1.1.2</string>
     <string name="title_activity_maps_nsr">Map</string>
     <string name="title_activity_maps_clt">Map</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-4036318734376935/2022261408</string>
+
+
+    <string name="title_activity_main3">Main3Activity</string>
+    <string name="second_view">Segunda ViewPager Teste</string>
+    <string name="swipe_left_to_nfirst_view">Anterior</string>
+    <string name="red">red</string>
+    <string name="blue">blue</string>
+    <string name="green">green</string>
+    <string name="swipe_right_to_nthird_view">Anterior</string>
+    <string name="buttonActivityMaps">Button</string>
+    <string name="ascender">TODO</string>
+
+
+    <string name="facebook_app_id">359576834525019</string>
+    <string name="fb_login_protocol_scheme">fb359576834525019</string>
+    <string name="cancel_login">Cancelar Login</string>
+    <string name="error_login">Aconteceu um erro ao logar</string>
+    <string name="firebase_error_login">Erro ao Logar</string>
+
+    <string name="pontopacity">Opacidade</string>
+    <string name="loginecopontologo">loginecoponto</string>
+
+    <string name="ecologindois">TODO</string>
+    <string name="cuidelogindois">TODO</string>
+
+
+    <string name="not_log_in">Nao pode inicar uma sessão</string>
+    <string name="log_out">LogOut</string>
+    <string name="revoke">Revoke</string>
+    <string name="not_close_session">Não pode se encerrar essa sessão</string>
+    <string name="not_revoke">No se pudo revocar el acceso</string>
+    <string name="not_firebase_auth">Você não pode se autenticar com o Firebase</string>
+
+
+    <string name="arvoresinicio">arvoreinicio</string>
+    <string name="logout1">logout1</string>
+    <string name="arvoresdois">arvoredois</string>
+    <string name="cuidedois">cuidedoisvalor</string>
+
+
+    <string name="lorem_ipsum">Enviar relatório</string>
+    <string name="imagecamera">ImagemRegistro</string>
+    <string name="choose">Choose</string>
+    <string name="upload">Enviar sua imagem</string>
+    <string name="password">passaword</string>
+    <string name="username">username</string>
+
+
+    <string name="projeto">PROJETO</string>
+    <string name="idealizador">IDEALIZADOR</string>
+    <string name="associa_o_de_catadores_de_itaperuna_rj">Associação de Catadores de Itaperuna-RJ</string>
+    <string name="tipo_de_coleta">TIPO DE COLETA</string>
+    <string name="todo">TODO</string>
+    <string name="coleta_de_leo_de_cozinha">Coleta de Óleo de Cozinha</string>
+    <string name="nosso_leo_nosso_rio2">Nosso Óleo Nosso Rio</string>
+    <string name="saber_mais">Saber mais…</string>
+
+
+    <item name="snippet" type="id">snippet</item>
+    <string name="title_activity_formulario_relatorio">Leanback FormularioRelatorio Title</string>
+    <!--Verificar essas strings loucas que apareceram do nada-->
+    <string name="browse_title"><![CDATA[Videos by Your Company]]></string>
+    <string name="related_movies">Related Videos</string>
+    <string name="grid_view">Grid View</string>
+    <string name="error_fragment">Error Fragment</string>
+    <string name="personal_settings">Personal Settings</string>
+    <string name="watch_trailer_1">Watch trailer</string>
+    <string name="watch_trailer_2">FREE</string>
+    <string name="rent_1">Rent By Day</string>
+    <string name="rent_2">From $1.99</string>
+    <string name="buy_1">Buy and Own</string>
+    <string name="buy_2">AT $9.99</string>
+    <string name="movie">Movie</string>
+    <string name="should_start">shouldStart</string>
+    <!--//Verificar essas strings loucas que apareceram do nada-->
+
+    <!-- Error messages -->
+    <string name="video_error_media_load_timeout">Media loading timed out</string>
+    <string name="video_error_server_inaccessible">Media server was not reachable</string>
+    <string name="video_error_unknown_error">Failed to load video</string>
+    <string name="error_fragment_message">An error occurred</string>
+    <string name="dismiss_error">Dismiss</string>
+
+
+    <!--Send E-mails Relaatorio-->
+    <string name="digite_seu_e_mail">Digite seu e-mail:</string>
+    <string name="assunto_do_e_mail">Assunto do e-mail:</string>
+    <string name="send">Enviar relatorio:</string>
+    <string name="mensagem_de_relatorio">Mensagem de relatorio:</string>
+    <string name="chooser_title">chooserelatorio</string>
+    <string name="title_activity_login_email">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="registrar">Registrar</string>
+    <string name="imgtodo">TODO</string>
+    <string name="title_activity_mapa_teste">Map</string>
+    <string name="buttonteste">Buttonteste</string>
+
 </resources>

@@ -1,7 +1,8 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.cooperativa.ideias.ascender.ecoponto.Fragment.MapsFragmentClt">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,4 +12,17 @@
         android:text="@string/hello_blank_fragment"
         android:id="@+id/map_view"/>
 
-</FrameLayout>
+    <!--com.google.android.gms.ads.AdView
+
+        android:id="@+id/adView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-4036318734376935/2170251396"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="517dp" /-->
+
+
+</RelativeLayout>

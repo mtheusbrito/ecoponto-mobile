@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
+
     <!-- Activity Principal-->
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -15,6 +16,7 @@
     <!--// Activity Principal-->
 
 
+    <!-- FullScreen theme Adicionado. -->
     <!-- FullScreen theme. -->
     <style name="FullScreen" parent="AppTheme">
         <item name="windowActionBar">false</item>
@@ -36,6 +38,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="ThemeOverlay">ThemeOverlay</style>
+
+    <style name="Theme">Theme</style>
 
 
 </resources>

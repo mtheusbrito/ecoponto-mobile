@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cooperativa.ideias.ascender.ecoponto.Activity.Sobre">
+    tools:context="com.cooperativa.ideias.ascender.ecoponto.Sobre">
 
 
     <ImageView
@@ -56,7 +56,8 @@
         tools:ignore="ContentDescription"
         android:layout_marginTop="28dp"
         android:layout_below="@+id/imageView12"
-        android:layout_alignStart="@+id/imageView4"/>
+        android:layout_alignStart="@+id/imageView4"
+        android:layout_alignLeft="@+id/imageView4" />
 
     <ImageView
         android:id="@+id/imageView13"

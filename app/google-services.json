@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "216816453741",
+    "firebase_url": "https://ecoponto-27359.firebaseio.com",
+    "project_id": "ecoponto-27359",
+    "storage_bucket": "ecoponto-27359.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216816453741:android:a430bedabf914d56",
+        "android_client_info": {
+          "package_name": "com.cooperativa.ideias.ascender.ecoponto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "216816453741-74vp0h0n8gna382ruiiaee1qv6kj3l87.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cooperativa.ideias.ascender.ecoponto",
+            "certificate_hash": "f31c26eb7d2c50ad860378393eb48d236c35eedb"
+          }
+        },
+        {
+          "client_id": "216816453741-pbe5qgh9n5k5iet4laf7e8t31dlnj5t4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cooperativa.ideias.ascender.ecoponto",
+            "certificate_hash": "3e3314311aac7632f4828f8e9e2376d4b7a460ea"
+          }
+        },
+        {
+          "client_id": "216816453741-i0sijq14hne0ihfdkrooeenpdnpkuokp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPiBbrJ0fOFamDFfnORcevxujYFeC3i2Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "216816453741-kqgq98nc3hcbfdci3dj070g8su5sk5nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

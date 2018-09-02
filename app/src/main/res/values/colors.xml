@@ -3,4 +3,17 @@
     <color name="colorPrimary">#5fbd6c</color>
     <color name="colorPrimaryDark">#55db6b</color>
     <color name="colorAccent">#00FF00</color>
+
+    <color name="button_normal">#1faa70</color>
+    <color name="button_pressed">#3ded91</color>
+
+    <color name="colorTransBg">#26000000</color>
+    <color name="background_gradient_start">#000000</color>
+    <color name="background_gradient_end">#DDDDDD</color>
+    <color name="fastlane_background">#0096a6</color>
+    <color name="search_opaque">#ffaa3f</color>
+    <color name="selected_background">#ffaa3f</color>
+    <color name="default_background">#3d3d3d</color>
+
+
 </resources>
