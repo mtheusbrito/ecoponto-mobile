@@ -78,9 +78,10 @@ public class Teste extends AppCompatActivity implements GoogleApiClient.OnConnec
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    goMainScreen();
-                }
+//                if (user != null) {
+//                    goMainScreen();
+//                }
+                goMainScreen();
             }
         };
 

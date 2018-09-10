@@ -43,11 +43,16 @@
 
             <!-- //Chamada da Activity principal- MainActivity -->
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+
+
         </activity>
 
         <meta-data
@@ -79,7 +84,13 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!-- //Chamada da Activity principal- MainActivity -->
 
         <activity
@@ -88,7 +99,7 @@
 
         </activity>
         <activity
-            android:name=".Sobre"
+            android:name=".SobreFragment"
             android:theme="@style/AppCompat.TelaCheia"> <!-- App Theme retirado da Action AscenderIdeias -->
 
         </activity>
@@ -99,7 +110,7 @@
         </activity>
 
         <!-- Acvitivity Main2 para armazenamento dos Horarios de Coleta -->
-        <activity android:name=".Main2Activity" />
+        <activity android:name=".ColetasFragment" />
 
         <!-- Activity para SplashScreen animacao de Entrada Aplicativo -->
         <!-- activity android:name=".Activity.Activity.Activity.SplashScreen" activity -->
@@ -125,7 +136,7 @@
         <!-- Mapa Coleta Seletiva -->
         <!--
             Fragment
-            android:name=".Activity.MapsActivityClt"
+            android:name=".Activity.MapsColetasFragment"
             android:label="@string/app_name"
             android:process=":SecondMapProcess" /
         -->

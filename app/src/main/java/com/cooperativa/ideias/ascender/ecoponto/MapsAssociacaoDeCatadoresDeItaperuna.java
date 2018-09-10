@@ -17,8 +17,7 @@ import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.cooperativa.ideias.ascender.ecoponto.Fragment.EmpregoDialogFragment;
-import com.cooperativa.ideias.ascender.ecoponto.Fragment.InfoMapsDialogFragment;
+import com.cooperativa.ideias.ascender.ecoponto.fragments.EmpregoDialogFragment;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;

@@ -20,7 +20,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.cooperativa.ideias.ascender.ecoponto.fragments.InfoMapsDialogFragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -32,7 +31,7 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivityNsr extends SupportMapFragment implements OnMapReadyCallback,
+public class MapsColetasFragment extends SupportMapFragment implements OnMapReadyCallback,
         LocationListener, ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerDragListener {
 
 
@@ -50,7 +49,7 @@ public class MapsActivityNsr extends SupportMapFragment implements OnMapReadyCal
     private DatabaseReference databaseReference;
     private double latitude = -49.429675;
     private static final int REQUEST_PERMISSIONS = 1;
-   // private GoogleMap map;
+    // private GoogleMap map;
     private ProgressDialog progressDialog;
     private LocationManager lm;
     private FragmentManager fragmentManager;
@@ -65,14 +64,17 @@ public class MapsActivityNsr extends SupportMapFragment implements OnMapReadyCal
             Manifest.permission.ACCESS_COARSE_LOCATION};
 
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
+        getActivity().setTitle("Pontos de coleta");
         getMapAsync(this);
+
         initMaps();
 
         //  getMarkers();// getMarkes adicionado do metodo Database realtime Firebase...
-
 
         if (!isLocationEnabled(getContext())) {
             AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
@@ -88,6 +90,7 @@ public class MapsActivityNsr extends SupportMapFragment implements OnMapReadyCal
             AlertDialog alert = dialog.create();
             alert.show();
         }
+
     }
 
 
@@ -393,11 +396,19 @@ public class MapsActivityNsr extends SupportMapFragment implements OnMapReadyCal
     @Override
     public void onMarkerDragEnd(Marker marker) {
 
+
     }
 
 
 
 }
+
+
+
+
+
+
+
 
 
 

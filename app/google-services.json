@@ -31,6 +31,22 @@
           }
         },
         {
+          "client_id": "216816453741-2ge6dgtdso833igvgutlpvbn09cc7in5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cooperativa.ideias.ascender.ecoponto",
+            "certificate_hash": "bc46b63d5a58209a4eb65db2bc7a89ffb97dd342"
+          }
+        },
+        {
+          "client_id": "216816453741-1ciqjde5gcb3rqebe4usqo3qubaueu8l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cooperativa.ideias.ascender.ecoponto",
+            "certificate_hash": "24e69a6939205b26c1d5dad442518113244af515"
+          }
+        },
+        {
           "client_id": "216816453741-i0sijq14hne0ihfdkrooeenpdnpkuokp.apps.googleusercontent.com",
           "client_type": 3
         }
