@@ -3,8 +3,10 @@ package com.cooperativa.ideias.ascender.ecoponto;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.customtabs.CustomTabsIntent;
@@ -14,18 +16,28 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.cooperativa.ideias.ascender.ecoponto.Utils.ConstantsUtils;
+import com.cooperativa.ideias.ascender.ecoponto.Utils.EventMessage;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.FragmentUtils;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.GetDataFrom;
 import com.google.android.gms.auth.api.Auth;
@@ -38,7 +50,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
+import org.greenrobot.eventbus.EventBus;
+
+import java.lang.reflect.Field;
+
 import static android.app.PendingIntent.getActivity;
+import static com.cooperativa.ideias.ascender.ecoponto.Utils.FragmentUtils.circleReveal;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -47,13 +64,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     Toolbar toolbar = null;
 
-
+    Toolbar  toolbarSearch;
     //WebCustomTabs
     CustomTabsIntent customTabsIntent;
     CustomTabsIntent.Builder intentBuilder;
 
     //Firebase
     private FirebaseAuth mAuth;
+
+    private Menu search_menu;
+    private MenuItem item_search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +94,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
 
+        //SearchView
+        toolbarSearch = findViewById(R.id.searchtoolbar);
+        setSearchToolbar();
+
+
+
         //Metodo para AdMob anuncios...
         // mInterstitialAd = new InterstitialAd(this);
         // mInterstitialAd.setAdUnitId("ca-app-pub-4036318734376935/2022261408");
@@ -82,6 +108,131 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FragmentUtils.replace(this, new MapsColetasFragment());
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main_activity, menu);
+        return true;
+    }
+
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                    circleReveal(MainActivity.this, R.id.searchtoolbar, 1, true, true);
+                else
+                    toolbarSearch.setVisibility(View.VISIBLE);
+
+                item_search.expandActionView();
+                return true;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    private void setSearchToolbar() {
+
+        if (toolbarSearch != null) {
+            toolbarSearch.inflateMenu(R.menu.menu_search);
+            search_menu = toolbarSearch.getMenu();
+
+            toolbarSearch.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                        circleReveal(MainActivity.this, R.id.searchtoolbar, 1, true, false);
+                    else
+                        toolbarSearch.setVisibility(View.GONE);
+                }
+            });
+
+
+            item_search = search_menu.findItem(R.id.action_filter_search);
+            MenuItemCompat.setOnActionExpandListener(item_search, new MenuItemCompat.OnActionExpandListener() {
+                @Override
+                public boolean onMenuItemActionCollapse(MenuItem item) {
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        circleReveal(MainActivity.this, R.id.searchtoolbar, 1, true, false);
+                    } else
+                        toolbarSearch.setVisibility(View.GONE);
+                    return true;
+                }
+
+                @Override
+                public boolean onMenuItemActionExpand(MenuItem item) {
+
+                    return true;
+                }
+            });
+
+            initSearchView();
+        } else {
+
+        }
+
+    }
+
+    private void initSearchView() {
+
+        final SearchView searchView =
+                (SearchView) search_menu.findItem(R.id.action_filter_search).getActionView();
+
+
+
+        searchView.setSubmitButtonEnabled(false);
+
+
+
+        ImageView closeButton = searchView.findViewById(R.id.search_close_btn);
+        closeButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_close));
+
+
+
+
+        EditText txtSearch = searchView.findViewById(R.id.search_src_text);
+        txtSearch.setHint("Buscar...");
+        txtSearch.setHintTextColor(Color.DKGRAY);
+        txtSearch.setTextColor(getResources().getColor(R.color.colorPrimary));
+
+
+        //setando Cursor
+
+        AutoCompleteTextView searchTextView = searchView.findViewById(R.id.search_src_text);
+        try {
+            Field mCursorDrawableRes = TextView.class.getDeclaredField("mCursorDrawableRes");
+            mCursorDrawableRes.setAccessible(true);
+            mCursorDrawableRes.set(searchTextView, R.drawable.search_cursor);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                callSearch(query);
+                searchView.clearFocus();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                callSearch(newText);
+                return true;
+            }
+
+            public void callSearch(String query) {
+
+                Log.i("ENVIANDO_QUERY", query);
+                EventBus.getDefault().post(new EventMessage(query));
+            }
+
+        });
+
+    }
+
     // Metodp onBackPressed Menu DrawerNavigation...
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -100,6 +251,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
   }
+
 
 
     private void displayView(int itemId) {
@@ -202,8 +354,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(currentUser!= null){
 
         }else {
-            startActivity(new Intent( this, LoginActivity.class));
-            finish();
+//            startActivity(new Intent( this, LoginActivity.class));
+//            finish();
         }
     }
 

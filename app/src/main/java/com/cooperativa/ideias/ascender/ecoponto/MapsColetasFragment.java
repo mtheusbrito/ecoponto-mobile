@@ -16,11 +16,14 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cooperativa.ideias.ascender.ecoponto.Utils.EventMessage;
 import com.cooperativa.ideias.ascender.ecoponto.fragments.InfoMapsDialogFragment;
+import com.cooperativa.ideias.ascender.ecoponto.models.PontosColeta;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -30,6 +33,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class MapsColetasFragment extends SupportMapFragment implements OnMapReadyCallback,
         LocationListener, ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerDragListener {
@@ -202,7 +209,7 @@ public class MapsColetasFragment extends SupportMapFragment implements OnMapRead
         //databaseReference.child ( "location" ).child ( String.valueOf ( new Date ( ).getTime ( ) ) ).setValue ( locationData );
         //Metodo para salvar dados no banco de dados...
 
-
+        PontosColeta p1 = new PontosColeta("ColetaSeletiva", "Matriz São José do Avaí", new LatLng(-21.2063722, -41.890727) );
         mMap.addMarker ( new MarkerOptions ( ).position ( new LatLng ( -21.2063722, -41.890727 ) )
                 .title ( "Coleta Seletiva" ).snippet ( "Matriz São José do Avaí" )
                 .icon( BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
@@ -399,6 +406,36 @@ public class MapsColetasFragment extends SupportMapFragment implements OnMapRead
 
     }
 
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void messageEventFromService(EventMessage event){
+//        displayTextView.setText(event.getNotification());
+
+        String query = event.getNotification();
+
+        if(query!= null ){
+            carregarLocalidades(query);
+        }else {
+            carregarLocalidades("");
+        }
+    }
+
+    private void carregarLocalidades(String s) {
+        Log.v("QUERY_DE_BUSCA", s);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
 
 
 }

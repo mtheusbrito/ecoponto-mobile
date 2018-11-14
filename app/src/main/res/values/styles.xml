@@ -43,4 +43,10 @@
     <style name="Theme">Theme</style>
 
 
+    <style name="SearchBarTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColorSecondary">@android:color/white</item>
+
+
+    </style>
+
 </resources>
