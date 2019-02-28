@@ -191,6 +191,10 @@
     <string name="imgtodo">TODO</string>
     <string name="title_activity_mapa_teste">Map</string>
     <string name="buttonteste">Buttonteste</string>
+    <string name="card_title">Vamos ECONOMIZAR?</string>
+    <string name="buttoncardview">Seguir</string>
+    <string name="imgcardview">IMGCARDVIEW</string>
+    <string name="duolingteste">DUOLINGTESTE</string>
     <!--TODO: Fim das Strings em Uso-->
 
 </resources>

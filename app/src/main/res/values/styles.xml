@@ -49,4 +49,10 @@
 
     </style>
 
+    <!--Styles usados para a utilização dos CardsView-->
+    <style name="ButtonStyle" parent="Base.Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorAccent</item>
+    </style>
+    <!--//Styles usados para a utilização dos CardsView-->
+
 </resources>

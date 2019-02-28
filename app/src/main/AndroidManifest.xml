@@ -73,10 +73,6 @@
 
 
         <!-- Chamando Activity ViewPager -->
-        <activity
-            android:name=".ViewPage"
-            android:label="@string/app_name"
-            android:theme="@style/FullScreen" />
         <!-- //Chamando Activity ViewPager -->
 
 
@@ -121,7 +117,6 @@
         <!-- /activity -->
         <activity android:name=".ProtejaOsEcoPontos" />
         <activity android:name=".EnviarEmail" />
-        <activity android:name=".VideoAssociacaoIFF" />
         <activity android:name=".MainLoginActivity" />
 
         <!-- Mapa Nosso Óleo Nosso Rio -->

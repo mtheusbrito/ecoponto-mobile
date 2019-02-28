@@ -1,6 +1,7 @@
 package com.cooperativa.ideias.ascender.ecoponto;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,12 +12,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -28,24 +27,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.cooperativa.ideias.ascender.ecoponto.Utils.ConstantsUtils;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.EventMessage;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.FragmentUtils;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.GetDataFrom;
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
+import com.cooperativa.ideias.ascender.ecoponto.viewpagercards.CardFragmentPagerAdapter;
+import com.cooperativa.ideias.ascender.ecoponto.viewpagercards.ShadowTransformer;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -106,6 +98,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Chamando fragmento inicial...
         navigationView.setCheckedItem(R.id.nav_coleta);
         FragmentUtils.replace(this, new MapsColetasFragment());
+
+
+
+        // Parametros para utilização dos Cards como ViewPager...
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+        CardFragmentPagerAdapter pagerAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(), dpToPixels(2, this));
+        ShadowTransformer fragmentCardShadowTransformer = new ShadowTransformer(viewPager, pagerAdapter);
+        fragmentCardShadowTransformer.enableScaling(true);
+
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.setPageTransformer(false, fragmentCardShadowTransformer);
+        viewPager.setOffscreenPageLimit(3);
 
     }
     @Override
@@ -244,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-
+    //Menu Drawer OnNavigationitensSelected...
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         displayView(item.getItemId());
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -253,7 +257,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
   }
 
 
-
+    //Utilização do menu usando Switch e case...
     private void displayView(int itemId) {
         switch (itemId) {
             case R.id.nav_coleta:
@@ -359,8 +363,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-
+    //
+    /**
+     * ViewPager com Cards Código de teste...
+     * Change value in dp to pixels
+     * @param dp
+     * @param context
+     */
+    public static float dpToPixels(int dp, Context context) {
+        return dp * (context.getResources().getDisplayMetrics().density);
+    }
 }
+
+
+
 
 
 
