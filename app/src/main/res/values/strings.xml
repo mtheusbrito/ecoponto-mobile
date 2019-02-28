@@ -16,7 +16,7 @@
     <string name="textemail">ascenderideias@gmail.com</string>
 
 
-    <string name="textasci">Associação de Catadores de Materias Recicláveis de Itaperuna tem a missão de executar com qualidade os serviços
+    <!--string name="textasci">Associação de Catadores de Materias Recicláveis de Itaperuna tem a missão de executar com qualidade os serviços
     de coleta, transporte, tratamento, e diposição final de resíduos, valorizando o Catador e o desenvolvimento
     da educação ambiental das comunidades. Visa ser a principal referência em associativismo do país
      e para isso acredita em valores como: dignidade, comprometimento, cooperação, honestidade e respeito.</string>
@@ -24,27 +24,27 @@
     <string name="textmaps">Cubatão- Estrada Alto Cubatão/ Nº07KM</string>
     <string name="textemailasci">asciitaperuna@gmail.com</string>
     <string name="title_activity_maps">Nosso Óleo Nosso Rio</string>
-    <string name="buttonhome">Inicio</string>
+    <string name="buttonhome">Inicio</string-->
 
-    <string name="button">Por que do Projeto?</string>
+    <!--string name="button">Por que do Projeto?</string>
     <string name="associa_o_de_catadores_de_itaperuna">Associação de Catadores de Itaperuna</string>
     <string name="ascender_ideias">É Ascender Ideias</string>
-    <string name="button33">Associação de Catadores de Itaperuna</string>
+    <string name="button33">Associação de Catadores de Itaperuna</string-->
 
 
-    <string name="textporqueprojeto">POR QUE DO PROJETO?</string>
+    <!--string name="textporqueprojeto">POR QUE DO PROJETO?</string>
     <string name="textporqueprojeto2">ECO PONTO é um fruto de uma parceria entre o SENAI de Itaperuna/RJ, através da turma
     de Auxíliar em Logística e ASSOCIAÇÃO DE CATADORES. Localizar os ECO PONTOS facilita a informação
     de como e onde destinar o óleo de cozinha saturado e outros recicláveis. Esses ECO PONTOS estão distribuídos
     pela cidade de Itaperuna em locais estratégicos com a facilidade de receber os materiais aos domingos
-    de 7 às 19h em igrejas parceiras. Encontre o ECO PONTO mais perto de você!</string>
+    de 7 às 19h em igrejas parceiras. Encontre o ECO PONTO mais perto de você!</string-->
 
 
-    <string name="e_o_aplicativo_eco_ponto">APLICATIVO ECO PONTO</string>
+    <!--string name="e_o_aplicativo_eco_ponto">APLICATIVO ECO PONTO</string>
     <string name="app2">O aplicativo surgiu da necessidade de informar a população sobre onde destinar
     corretamente os resíduos que serão reciclados e/ou reutilizados. Em uma parceria entre a empresa Ascender Ideias e Associação de Catadores
     de Itaperuna teve início o desenvolvimento deste aplicativo. Ascender Ideias é uma empresa que se preocupa com o
-    meio ambiente, foi a desenvolvedora do aplicativo em sua primeira versão com futuras atualizações.</string>
+    meio ambiente, foi a desenvolvedora do aplicativo em sua primeira versão com futuras atualizações.</string-->
 
 
     <string name="nav_voltar">Sobre</string>
@@ -131,7 +131,7 @@
     <string name="saber_mais">Saber mais…</string>
 
 
-    <item name="snippet" type="id">snippet</item>
+    <item name="snippet" type="id"/>
     <string name="title_activity_formulario_relatorio">Leanback FormularioRelatorio Title</string>
     <!--Verificar essas strings loucas que apareceram do nada-->
     <string name="browse_title"><![CDATA[Videos by Your Company]]></string>
