@@ -1,9 +1,8 @@
 <resources>
+    <!-- TODO: Strings Navigation Drawaer e app name-->
     <string name="app_name">EcoPonto</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -16,15 +15,17 @@
     <string name="textemail">ascenderideias@gmail.com</string>
 
 
+     <!-- TODO: COMENTANDO TODAS AS STRINGS QUE APRESENTA POUCA NECESSIDADE DO APP-->
+    <!-- TODO:==================================================================================================================-->
     <!--string name="textasci">Associação de Catadores de Materias Recicláveis de Itaperuna tem a missão de executar com qualidade os serviços
     de coleta, transporte, tratamento, e diposição final de resíduos, valorizando o Catador e o desenvolvimento
     da educação ambiental das comunidades. Visa ser a principal referência em associativismo do país
      e para isso acredita em valores como: dignidade, comprometimento, cooperação, honestidade e respeito.</string>
     <string name="textelasci">Tel: (22)3822-7961,  (22)99925-9664</string>
     <string name="textmaps">Cubatão- Estrada Alto Cubatão/ Nº07KM</string>
-    <string name="textemailasci">asciitaperuna@gmail.com</string>
+    <string name="textemailasci">asciitaperuna@gmail.com</string-->
     <string name="title_activity_maps">Nosso Óleo Nosso Rio</string>
-    <string name="buttonhome">Inicio</string-->
+    <string name="buttonhome">Inicio</string>
 
     <!--string name="button">Por que do Projeto?</string>
     <string name="associa_o_de_catadores_de_itaperuna">Associação de Catadores de Itaperuna</string>
@@ -46,7 +47,9 @@
     de Itaperuna teve início o desenvolvimento deste aplicativo. Ascender Ideias é uma empresa que se preocupa com o
     meio ambiente, foi a desenvolvedora do aplicativo em sua primeira versão com futuras atualizações.</string-->
 
+    <!-- TODO:==================================================================================================================-->
 
+    <!-- TODO: Strings em uso-->
     <string name="nav_voltar">Sobre</string>
     <string name="title_activity_maps_ascender_ideias">Map</string>
     <string name="nav_button10">Localizar Ascender Ideias</string>
@@ -129,12 +132,15 @@
     <string name="coleta_de_leo_de_cozinha">Coleta de Óleo de Cozinha</string>
     <string name="nosso_leo_nosso_rio2">Nosso Óleo Nosso Rio</string>
     <string name="saber_mais">Saber mais…</string>
-
-
     <item name="snippet" type="id"/>
-    <string name="title_activity_formulario_relatorio">Leanback FormularioRelatorio Title</string>
+    <!--TODO: Fim das strings em Uso-->
+
+
+
+    <!--string name="title_activity_formulario_relatorio">Leanback FormularioRelatorio Title</string-->
+
     <!--Verificar essas strings loucas que apareceram do nada-->
-    <string name="browse_title"><![CDATA[Videos by Your Company]]></string>
+    <!--string name="browse_title"><![CDATA[Videos by Your Company]]></string>
     <string name="related_movies">Related Videos</string>
     <string name="grid_view">Grid View</string>
     <string name="error_fragment">Error Fragment</string>
@@ -146,18 +152,19 @@
     <string name="buy_1">Buy and Own</string>
     <string name="buy_2">AT $9.99</string>
     <string name="movie">Movie</string>
-    <string name="should_start">shouldStart</string>
+    <string name="should_start">shouldStartstring-->
     <!--//Verificar essas strings loucas que apareceram do nada-->
 
     <!-- Error messages -->
-    <string name="video_error_media_load_timeout">Media loading timed out</string>
+    <!--string name="video_error_media_load_timeout">Media loading timed out</string>
     <string name="video_error_server_inaccessible">Media server was not reachable</string>
     <string name="video_error_unknown_error">Failed to load video</string>
     <string name="error_fragment_message">An error occurred</string>
-    <string name="dismiss_error">Dismiss</string>
+    <string name="dismiss_error">Dismiss</string-->
 
 
     <!--Send E-mails Relaatorio-->
+    <!--TODO: Strings em uso-->
     <string name="digite_seu_e_mail">Digite seu e-mail:</string>
     <string name="assunto_do_e_mail">Assunto do e-mail:</string>
     <string name="send">Enviar relatorio:</string>
@@ -175,8 +182,7 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."
     </string>
 
     <string name="senha">Senha</string>
@@ -185,5 +191,6 @@
     <string name="imgtodo">TODO</string>
     <string name="title_activity_mapa_teste">Map</string>
     <string name="buttonteste">Buttonteste</string>
+    <!--TODO: Fim das Strings em Uso-->
 
 </resources>
