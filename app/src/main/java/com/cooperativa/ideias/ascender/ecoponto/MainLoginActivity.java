@@ -53,7 +53,7 @@ public class MainLoginActivity extends AppCompatActivity implements GoogleApiCli
 
 //Iniciando metodos e linhas de codigospara Login GOOGLE...
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestIdToken(getString(R.string.default_web_client_id2))
                 .requestEmail()
                 .build();
 

@@ -14,6 +14,9 @@ public class CardFragmentPagerAdapter extends FragmentStatePagerAdapter implemen
     private List<CardFragment> fragments;
     private float baseElevation;
 
+   private CardFragment addCardFragment;
+
+
     public CardFragmentPagerAdapter(FragmentManager fm, float baseElevation) {
         super(fm);
         fragments = new ArrayList<>();
@@ -40,9 +43,16 @@ public class CardFragmentPagerAdapter extends FragmentStatePagerAdapter implemen
     }
 
     @Override
+    public Object instantiateItem2(ViewGroup container, int position) {
+        return null;
+    }
+
+    @Override
     public Fragment getItem(int position) {
         return CardFragment.getInstance(position);
+
     }
+
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
@@ -50,6 +60,7 @@ public class CardFragmentPagerAdapter extends FragmentStatePagerAdapter implemen
         fragments.set(position, (CardFragment) fragment);
         return fragment;
     }
+
 
     public void addCardFragment(CardFragment fragment) {
         fragments.add(fragment);

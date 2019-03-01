@@ -99,17 +99,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setCheckedItem(R.id.nav_coleta);
         FragmentUtils.replace(this, new MapsColetasFragment());
 
-
-
-        // Parametros para utilização dos Cards como ViewPager...
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
-        CardFragmentPagerAdapter pagerAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(), dpToPixels(2, this));
-        ShadowTransformer fragmentCardShadowTransformer = new ShadowTransformer(viewPager, pagerAdapter);
-        fragmentCardShadowTransformer.enableScaling(true);
-
-        viewPager.setAdapter(pagerAdapter);
-        viewPager.setPageTransformer(false, fragmentCardShadowTransformer);
-        viewPager.setOffscreenPageLimit(3);
+        
 
     }
     @Override

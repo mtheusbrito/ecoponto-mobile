@@ -15,7 +15,7 @@
     <string name="textemail">ascenderideias@gmail.com</string>
 
 
-     <!-- TODO: COMENTANDO TODAS AS STRINGS QUE APRESENTA POUCA NECESSIDADE DO APP-->
+    <!-- TODO: COMENTANDO TODAS AS STRINGS QUE APRESENTA POUCA NECESSIDADE DO APP-->
     <!-- TODO:==================================================================================================================-->
     <!--string name="textasci">Associação de Catadores de Materias Recicláveis de Itaperuna tem a missão de executar com qualidade os serviços
     de coleta, transporte, tratamento, e diposição final de resíduos, valorizando o Catador e o desenvolvimento
@@ -79,11 +79,7 @@
 
 
     <string name="title_activity_main3">Main3Activity</string>
-    <string name="second_view">Segunda ViewPager Teste</string>
     <string name="swipe_left_to_nfirst_view">Anterior</string>
-    <string name="red">red</string>
-    <string name="blue">blue</string>
-    <string name="green">green</string>
     <string name="swipe_right_to_nthird_view">Anterior</string>
     <string name="buttonActivityMaps">Button</string>
     <string name="ascender">TODO</string>
@@ -132,9 +128,8 @@
     <string name="coleta_de_leo_de_cozinha">Coleta de Óleo de Cozinha</string>
     <string name="nosso_leo_nosso_rio2">Nosso Óleo Nosso Rio</string>
     <string name="saber_mais">Saber mais…</string>
-    <item name="snippet" type="id"/>
+    <item name="snippet" type="id" />
     <!--TODO: Fim das strings em Uso-->
-
 
 
     <!--string name="title_activity_formulario_relatorio">Leanback FormularioRelatorio Title</string-->
@@ -191,10 +186,17 @@
     <string name="imgtodo">TODO</string>
     <string name="title_activity_mapa_teste">Map</string>
     <string name="buttonteste">Buttonteste</string>
-    <string name="card_title">Vamos ECONOMIZAR?</string>
+
+
+    <string name="card_title">Vamos Gastare?</string>
     <string name="buttoncardview">Seguir</string>
     <string name="imgcardview">IMGCARDVIEW</string>
     <string name="duolingteste">DUOLINGTESTE</string>
+
+    <string name="card_title2">Vamos GASTARrrrr?</string>
+
+    <string name="default_web_client_id2">Default Web Client2</string>
+
     <!--TODO: Fim das Strings em Uso-->
 
 </resources>

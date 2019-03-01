@@ -27,33 +27,33 @@
         android:name="android.hardware.camera"
         android:required="false" />
 
-
     <application
         android:icon="@mipmap/iconenovo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!-- Fazer a troca de tags iniciais para laucher correto do app. Apenas realizando teste com viewpager-->
+        <!-- MainActivity por ViewPagerCards...-->
+        <activity android:name=".ViewPagerCards">
 
-        <!-- Chamada da Activity principal- MainActivity -->
+
+        </activity>
+
+        <!-- Chamada da Activity Inicial Teste-->
         <activity
             android:name=".Teste"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
-            <!-- //Chamada da Activity principal- MainActivity -->
-
+            <!-- //Chamada da Activity Inicial Teste -->
 
         </activity>
 
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -61,7 +61,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDPLY-wWU-vtAIgyIMNmxj5oS2dIYok0_w" />
-
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -70,12 +69,8 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-
-
         <!-- Chamando Activity ViewPager -->
         <!-- //Chamando Activity ViewPager -->
-
-
         <!-- Chamada da Activity principal- MainActivity -->
         <activity
             android:name=".MainActivity"
@@ -86,9 +81,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- //Chamada da Activity principal- MainActivity -->
-
+        </activity> <!-- //Chamada da Activity principal- MainActivity -->
         <activity
             android:name=".AscenderIdeias"
             android:theme="@style/AppCompat.TelaCheia"> <!-- App Theme retirado da Action AscenderIdeias -->
@@ -103,59 +96,15 @@
             android:name=".ASCItaperuna"
             android:theme="@style/AppCompat.TelaCheia"> <!-- App Theme retirado da Action AscenderIdeias -->
 
-        </activity>
-
-        <!-- Acvitivity Main2 para armazenamento dos Horarios de Coleta -->
-        <activity android:name=".ColetasFragment" />
-
-        <!-- Activity para SplashScreen animacao de Entrada Aplicativo -->
+        </activity> <!-- Acvitivity Main2 para armazenamento dos Horarios de Coleta -->
+        <activity android:name=".ColetasFragment" /> <!-- Activity para SplashScreen animacao de Entrada Aplicativo -->
         <!-- activity android:name=".Activity.Activity.Activity.SplashScreen" activity -->
         <!-- Referencia Activity Splash Original -->
-
-
         <!-- activity android:name=".Activity.Activity.Activity.ViewPage" -->
         <!-- /activity -->
         <activity android:name=".ProtejaOsEcoPontos" />
         <activity android:name=".EnviarEmail" />
         <activity android:name=".MainLoginActivity" />
-
-        <!-- Mapa Nosso Óleo Nosso Rio -->
-        <!--
-            Fragment
-            android:name=".Activity.MapsActivityNsr"
-            android:label="@string/title_activity_maps" /
-        -->
-        <!-- //Mapa Nosso Óleo Nosso Rio -->
-
-
-        <!-- Mapa Coleta Seletiva -->
-        <!--
-            Fragment
-            android:name=".Activity.MapsColetasFragment"
-            android:label="@string/app_name"
-            android:process=":SecondMapProcess" /
-        -->
-        <!-- //Mapa Coleta Seletiva -->
-
-
-        <!-- Mapa Ascender Ideias -->
-        <!--
-            Fragment
-            android:name=".Activity.MapsAscenderIdeias"
-            android:label="Ascender Ideias"
-            android:process=":ThirdMapProcess" /
-        -->
-        <!-- //Mapa Ascender Ideias -->
-
-
-        <!-- Mapa Associação de Catadores de Itaperuna -->
-        <!--
-            android:name=".Maps"
-            android:label="Associação de Catadores de Itaperuna"
-            android:process=":FourMapProcess" /
-        -->
-        <!-- //Mapa Associação de Catadores de Itaperuna -->
-
     </application>
 
 </manifest>
