@@ -1,29 +1,51 @@
 package com.cooperativa.ideias.ascender.ecoponto.v2.models;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 public class Ponto implements Serializable {
 
     public String id;
     public String local;
+    public String descricao;
     public String inicio;
     public String termino;
     public String url;
     public String latitude;
     public String longitude;
-
+    public Map<String, Object> dias;
     public Ponto() {
     }
 
-    public Ponto(String id, String local, String inicio, String termino, String url, String latitude, String longitude) {
+    public Ponto(String id, String local, String descricao, String inicio, String termino, String url, String latitude, String longitude, Map<String, Object> dias) {
         this.id = id;
         this.local = local;
+        this.descricao = descricao;
         this.inicio = inicio;
         this.termino = termino;
         this.url = url;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.dias = dias;
     }
+
+    public Map<String, Object> getDias() {
+        return dias;
+    }
+
+    public void setDias(Map<String, Object> dias) {
+        this.dias = dias;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
 
     public String getId() {
         return id;
