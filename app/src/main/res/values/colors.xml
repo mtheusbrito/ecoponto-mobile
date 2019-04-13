@@ -16,4 +16,13 @@
     <color name="default_background">#3d3d3d</color>
 
 
+
+
+    <!--v2 -->
+    <color name="v2colorPrimary">#00ad5e</color>
+    <color name="v2colorPrimaryDark">#007944</color>
+    <color name="v2colorAcent">#64d300</color>
+
+
+
 </resources>

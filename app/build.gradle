@@ -14,8 +14,12 @@ android {
     }
     buildTypes {
         release {
+            manifestPlaceholders = [google_map_key: "AIzaSyBPiBbrJ0fOFamDFfnORcevxujYFeC3i2Y"]
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            manifestPlaceholders = [google_map_key: "AIzaSyBPiBbrJ0fOFamDFfnORcevxujYFeC3i2Y"]
         }
     }
 }
@@ -39,6 +43,7 @@ dependencies {
     //implementation 'com.google.android.gms:play-services:15.0.1'
     implementation 'com.google.android.gms:play-services-ads:15.0.1'
     implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
     //implementation 'com.android.support:support-v4:27.1.0'
     implementation 'com.google.android.gms:play-services-places:15.0.1'
     //testimplementation 'junit:junit:4.12'

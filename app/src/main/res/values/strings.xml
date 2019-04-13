@@ -196,6 +196,9 @@
     <string name="card_title2">Vamos GASTARrrrr?</string>
 
     <string name="default_web_client_id2">Default Web Client2</string>
+    <string name="title_mapa">Ver no mapa</string>
+    <string name="title_localidades">Localidades</string>
+    <string name="title_sobre">Sobre</string>
 
     <!--TODO: Fim das Strings em Uso-->
 

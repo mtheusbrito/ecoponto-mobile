@@ -7,25 +7,19 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="com.google.android.apps.maps.permission.PREFETCH" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-    <uses-feature
-        android:name="android.hardware.touchscreen"
-        android:required="false" />
-    <uses-feature
-        android:name="android.software.leanback"
-        android:required="false" />
-    <uses-feature
-        android:name="android.hardware.location.gps"
-        android:required="false" />
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="false" />
+    <!--<uses-feature-->
+        <!--android:name="android.hardware.touchscreen"-->
+        <!--android:required="false" />-->
+    <!--<uses-feature-->
+        <!--android:name="android.software.leanback"-->
+        <!--android:required="false" />-->
+    <!--<uses-feature-->
+        <!--android:name="android.hardware.location.gps"-->
+        <!--android:required="false" />-->
+    <!--<uses-feature-->
+        <!--android:name="android.hardware.camera"-->
+        <!--android:required="false" />-->
 
     <application
         android:icon="@mipmap/iconenovo"
@@ -35,32 +29,32 @@
         android:theme="@style/AppTheme">
         <!-- Fazer a troca de tags iniciais para laucher correto do app. Apenas realizando teste com viewpager-->
         <!-- MainActivity por ViewPagerCards...-->
-        <activity android:name=".ViewPagerCards">
+        <!--<activity android:name=".ViewPagerCards">-->
 
 
-        </activity>
+        <!--</activity>-->
 
         <!-- Chamada da Activity Inicial Teste-->
-        <activity
-            android:name=".Teste"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+        <!--<activity-->
+            <!--android:name=".Teste"-->
+            <!--android:label="@string/app_name"-->
+            <!--android:theme="@style/AppTheme.NoActionBar">-->
 
-            <!-- //Chamada da Activity Inicial Teste -->
+            <!--&lt;!&ndash; //Chamada da Activity Inicial Teste &ndash;&gt;-->
 
-        </activity>
+        <!--</activity>-->
 
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <!--<activity-->
+            <!--android:name=".LoginActivity"-->
+            <!--android:label="@string/app_name"-->
+            <!--android:theme="@style/AppTheme.NoActionBar"></activity>-->
 
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDPLY-wWU-vtAIgyIMNmxj5oS2dIYok0_w" />
+        <!--<meta-data-->
+            <!--android:name="com.google.android.gms.version"-->
+            <!--android:value="@integer/google_play_services_version" />-->
+        <!--<meta-data-->
+            <!--android:name="com.google.android.geo.API_KEY"-->
+            <!--android:value="AIzaSyDPLY-wWU-vtAIgyIMNmxj5oS2dIYok0_w" />-->
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -73,7 +67,7 @@
         <!-- //Chamando Activity ViewPager -->
         <!-- Chamada da Activity principal- MainActivity -->
         <activity
-            android:name=".MainActivity"
+            android:name=".v2.activitys.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -81,30 +75,42 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- //Chamada da Activity principal- MainActivity -->
-        <activity
-            android:name=".AscenderIdeias"
-            android:theme="@style/AppCompat.TelaCheia"> <!-- App Theme retirado da Action AscenderIdeias -->
-
         </activity>
-        <activity
-            android:name=".SobreFragment"
-            android:theme="@style/AppCompat.TelaCheia"> <!-- App Theme retirado da Action AscenderIdeias -->
 
-        </activity>
-        <activity
-            android:name=".ASCItaperuna"
-            android:theme="@style/AppCompat.TelaCheia"> <!-- App Theme retirado da Action AscenderIdeias -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${google_map_key}" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
-        </activity> <!-- Acvitivity Main2 para armazenamento dos Horarios de Coleta -->
-        <activity android:name=".ColetasFragment" /> <!-- Activity para SplashScreen animacao de Entrada Aplicativo -->
-        <!-- activity android:name=".Activity.Activity.Activity.SplashScreen" activity -->
-        <!-- Referencia Activity Splash Original -->
-        <!-- activity android:name=".Activity.Activity.Activity.ViewPage" -->
-        <!-- /activity -->
-        <activity android:name=".ProtejaOsEcoPontos" />
-        <activity android:name=".EnviarEmail" />
-        <activity android:name=".MainLoginActivity" />
+
+
+
+        <!-- //Chamada da Activity principal- MainActivity -->
+        <!--<activity-->
+            <!--android:name=".AscenderIdeias"-->
+            <!--android:theme="@style/AppCompat.TelaCheia"> &lt;!&ndash; App Theme retirado da Action AscenderIdeias &ndash;&gt;-->
+
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name=".SobreFragment"-->
+            <!--android:theme="@style/AppCompat.TelaCheia"> &lt;!&ndash; App Theme retirado da Action AscenderIdeias &ndash;&gt;-->
+
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name=".ASCItaperuna"-->
+            <!--android:theme="@style/AppCompat.TelaCheia"> &lt;!&ndash; App Theme retirado da Action AscenderIdeias &ndash;&gt;-->
+
+        <!--</activity> &lt;!&ndash; Acvitivity Main2 para armazenamento dos Horarios de Coleta &ndash;&gt;-->
+        <!--<activity android:name=".ColetasFragment" /> &lt;!&ndash; Activity para SplashScreen animacao de Entrada Aplicativo &ndash;&gt;-->
+        <!--&lt;!&ndash; activity android:name=".Activity.Activity.Activity.SplashScreen" activity &ndash;&gt;-->
+        <!--&lt;!&ndash; Referencia Activity Splash Original &ndash;&gt;-->
+        <!--&lt;!&ndash; activity android:name=".Activity.Activity.Activity.ViewPage" &ndash;&gt;-->
+        <!--&lt;!&ndash; /activity &ndash;&gt;-->
+        <!--<activity android:name=".ProtejaOsEcoPontos" />-->
+        <!--<activity android:name=".EnviarEmail" />-->
+        <!--<activity android:name=".MainLoginActivity" />-->
     </application>
 
 </manifest>

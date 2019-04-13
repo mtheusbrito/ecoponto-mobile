@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+
+        android:id="@+id/navigation_mapa"
+        android:icon="@drawable/ic_action_mapa"
+        android:title="@string/title_mapa" />
+
+    <item
+        android:id="@+id/navigation_localidades"
+        android:icon="@drawable/ic_action_lista"
+        android:title="@string/title_localidades" />
+
+    <item
+
+        android:id="@+id/navigation_sobre"
+        android:icon="@drawable/ic_action_sobre"
+        android:title="@string/title_sobre" />
+</menu>
