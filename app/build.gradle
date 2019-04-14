@@ -22,6 +22,10 @@ android {
             manifestPlaceholders = [google_map_key: "AIzaSyBPiBbrJ0fOFamDFfnORcevxujYFeC3i2Y"]
         }
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 }
 
 dependencies {

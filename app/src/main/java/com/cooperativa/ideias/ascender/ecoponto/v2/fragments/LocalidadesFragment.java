@@ -30,8 +30,8 @@ import java.util.List;
 
 public class LocalidadesFragment extends Fragment {
     private RecyclerView recyclerView;
-    private List<Ponto> pontos;
-    private List<Dia> dias;
+//    private List<Ponto> pontos;
+    private ArrayList<Ponto> pontos;
     private Query databasePontos, databaseDias;
     private LocalidadesAdapter adapter;
 
@@ -44,49 +44,26 @@ public class LocalidadesFragment extends Fragment {
         preencherLista();
         return view;
     }
-//    dias = new ArrayList<>();
 
-    //                        databaseDias = ConfiguracoesFirebase.getDias(ponto.getId());
-//                        databaseDias.keepSynced(true);
-//                        new GetDataFrom().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-//                        databaseDias.addValueEventListener(new ValueEventListener() {
-//                            @Override
-//                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                                try{
-//                                    dias.clear();
-//                                    for (DataSnapshot snapshot: dataSnapshot.getChildren()){
-//                                        Dia dia = snapshot.getValue(Dia.class);
-//                                        dias.add(dia);
-//                                    }
-//
-//                                    ponto.dias.addAll(dias);
-//                                }catch (Exception e){
-//                                    e.printStackTrace();
-//                                }
-//                            }
-//
-//                            @Override
-//                            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                            }
-//                        });
     private void preencherLista() {
-        pontos= new ArrayList<>();
-
+        pontos = new ArrayList<>();
         databasePontos = ConfiguracoesFirebase.getPontos();
         databasePontos.keepSynced(true);
-        databasePontos.addValueEventListener(new ValueEventListener() {
+        databasePontos.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange( DataSnapshot dataSnapshot) {
+
                 try{
                     pontos.clear();
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Ponto ponto = snapshot.getValue(Ponto.class);
                         pontos.add(ponto);
+
                     }
 
-                    Log.v("PONTO", pontos.toString());
+
                     adapter.atualizar(pontos);
+
 
                 }catch (Exception e){
                     e.printStackTrace();
@@ -97,8 +74,8 @@ public class LocalidadesFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
 
+        });
 
         adapter = new LocalidadesAdapter(getActivity(), pontos, recyclerView);
         recyclerView.setAdapter(adapter);
@@ -117,19 +94,19 @@ public class LocalidadesFragment extends Fragment {
         recyclerView.addItemDecoration(mDivider);
 
 
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new RecyclerTouchListener.ClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-
-            }
-
-            @Override
-            public void onLongClick(View view, int position) {
-                Ponto ponto = pontos.get(position);
-
-                Log.v("PONTO", ponto.toString());
-            }
-        }));
+//        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new RecyclerTouchListener.ClickListener() {
+//            @Override
+//            public void onClick(View view, int position) {
+//
+//            }
+//
+//            @Override
+//            public void onLongClick(View view, int position) {
+//                Ponto ponto = pontos.get(position);
+//
+//                Log.v("PONTO", ponto.toString());
+//            }
+//        }));
 
     }
 }

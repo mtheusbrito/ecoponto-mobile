@@ -1,8 +1,15 @@
 package com.cooperativa.ideias.ascender.ecoponto.v2.models;
 
+import android.os.Build;
+import android.util.Log;
+
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 
 public class Ponto implements Serializable {
 
@@ -14,11 +21,13 @@ public class Ponto implements Serializable {
     public String url;
     public String latitude;
     public String longitude;
-    public Map<String, Object> dias;
+    public Map<String, Dia> dias = new HashMap<>();
+
+
     public Ponto() {
     }
 
-    public Ponto(String id, String local, String descricao, String inicio, String termino, String url, String latitude, String longitude, Map<String, Object> dias) {
+    public Ponto(String id, String local, String descricao, String inicio, String termino, String url, String latitude, String longitude, Map<String, Dia> dias) {
         this.id = id;
         this.local = local;
         this.descricao = descricao;
@@ -30,11 +39,18 @@ public class Ponto implements Serializable {
         this.dias = dias;
     }
 
-    public Map<String, Object> getDias() {
+    public Map<String, Dia> getDias() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return dias.entrySet().stream()
+                    .sorted(Map.Entry.comparingByValue())
+                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
+        }
         return dias;
+
     }
 
-    public void setDias(Map<String, Object> dias) {
+    public void setDias(Map<String, Dia> dias) {
         this.dias = dias;
     }
 
@@ -102,4 +118,13 @@ public class Ponto implements Serializable {
     public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
+
+
+    public List<Dia> retornaDias(){
+
+
+        return null;
+    }
+
+
 }
