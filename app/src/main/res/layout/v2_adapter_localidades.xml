@@ -1,32 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:clickable="true"
+
     android:background="?android:selectableItemBackground"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <ImageView
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/imageRow"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_margin="10dp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textLocal"
-            android:text="Matriz São José do Avaí"
+            android:text="Local"
+            android:textStyle="bold"
             android:textSize="18sp"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <TextView
-            android:layout_marginTop="5dp"
+
             android:id="@+id/textHorario"
-            android:text="08:00 as 12:00"
+            android:text="Horario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/textDias"
-            android:layout_marginTop="2dp"
-            android:text="DOM SEG TER QUA QUI"
+
+            android:text="dias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>

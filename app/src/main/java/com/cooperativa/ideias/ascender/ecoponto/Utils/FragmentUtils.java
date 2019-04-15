@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
@@ -20,6 +21,16 @@ public class FragmentUtils {
     }
 
     private static void replace(AppCompatActivity activity, Fragment fragment, int container) {
+        FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
+        transaction.replace(container, fragment);
+        transaction.commit();
+
+    }
+    public static void replace(FragmentActivity activity, Fragment fragment){
+        replace(activity, fragment, R.id.container);
+    }
+
+    private static void replace(FragmentActivity activity, Fragment fragment, int container) {
         FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
         transaction.replace(container, fragment);
         transaction.commit();

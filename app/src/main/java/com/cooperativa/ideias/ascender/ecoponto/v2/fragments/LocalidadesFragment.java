@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.GetDataFrom;
@@ -30,10 +31,9 @@ import java.util.List;
 
 public class LocalidadesFragment extends Fragment {
     private RecyclerView recyclerView;
-//    private List<Ponto> pontos;
     private ArrayList<Ponto> pontos;
-    private Query databasePontos, databaseDias;
     private LocalidadesAdapter adapter;
+    private ProgressBar progressBar;
 
     @Nullable
     @Override
@@ -47,7 +47,7 @@ public class LocalidadesFragment extends Fragment {
 
     private void preencherLista() {
         pontos = new ArrayList<>();
-        databasePontos = ConfiguracoesFirebase.getPontos();
+        Query databasePontos = ConfiguracoesFirebase.getPontos();
         databasePontos.keepSynced(true);
         databasePontos.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -61,7 +61,7 @@ public class LocalidadesFragment extends Fragment {
 
                     }
 
-
+                    progressBar.setVisibility(View.GONE);
                     adapter.atualizar(pontos);
 
 
@@ -82,6 +82,7 @@ public class LocalidadesFragment extends Fragment {
     }
 
     private void initView(View view) {
+        progressBar = view.findViewById(R.id.progressBar);
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -94,19 +95,8 @@ public class LocalidadesFragment extends Fragment {
         recyclerView.addItemDecoration(mDivider);
 
 
-//        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new RecyclerTouchListener.ClickListener() {
-//            @Override
-//            public void onClick(View view, int position) {
-//
-//            }
-//
-//            @Override
-//            public void onLongClick(View view, int position) {
-//                Ponto ponto = pontos.get(position);
-//
-//                Log.v("PONTO", ponto.toString());
-//            }
-//        }));
+
 
     }
+
 }

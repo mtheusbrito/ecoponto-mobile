@@ -1,6 +1,8 @@
 package com.cooperativa.ideias.ascender.ecoponto.v2.models;
 
 import android.os.Build;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import java.io.Serializable;
@@ -11,7 +13,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 
-public class Ponto implements Serializable {
+public class Ponto implements Serializable, Parcelable {
 
     public String id;
     public String local;
@@ -38,6 +40,29 @@ public class Ponto implements Serializable {
         this.longitude = longitude;
         this.dias = dias;
     }
+
+    protected Ponto(Parcel in) {
+        id = in.readString();
+        local = in.readString();
+        descricao = in.readString();
+        inicio = in.readString();
+        termino = in.readString();
+        url = in.readString();
+        latitude = in.readString();
+        longitude = in.readString();
+    }
+
+    public static final Creator<Ponto> CREATOR = new Creator<Ponto>() {
+        @Override
+        public Ponto createFromParcel(Parcel in) {
+            return new Ponto(in);
+        }
+
+        @Override
+        public Ponto[] newArray(int size) {
+            return new Ponto[size];
+        }
+    };
 
     public Map<String, Dia> getDias() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -127,4 +152,33 @@ public class Ponto implements Serializable {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(local);
+        dest.writeString(descricao);
+        dest.writeString(inicio);
+        dest.writeString(termino);
+        dest.writeString(url);
+        dest.writeString(latitude);
+        dest.writeString(longitude);
+    }
+
+    public String getDiasInline() {
+
+        StringBuilder dias = new StringBuilder();
+
+
+        for (Map.Entry<String,Dia> d : getDias().entrySet()) {
+
+            dias.append(" ").append(d.getValue().getLabel());
+
+        }
+        return dias.toString();
+    }
 }

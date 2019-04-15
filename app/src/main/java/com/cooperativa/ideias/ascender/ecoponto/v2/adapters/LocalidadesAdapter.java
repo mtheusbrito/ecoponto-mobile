@@ -4,26 +4,22 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
-import com.cooperativa.ideias.ascender.ecoponto.v2.models.Dia;
+import com.cooperativa.ideias.ascender.ecoponto.Utils.CircleTransform;
+import com.cooperativa.ideias.ascender.ecoponto.Utils.FragmentUtils;
+import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.DetalhesFragment;
 import com.cooperativa.ideias.ascender.ecoponto.v2.models.Ponto;
+import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class LocalidadesAdapter extends RecyclerView.Adapter<LocalidadesAdapter.ViewHolder> {
     private List<Ponto> pontos;
@@ -51,24 +47,15 @@ public class LocalidadesAdapter extends RecyclerView.Adapter<LocalidadesAdapter.
         final Ponto ponto = pontos.get(i);
         viewHolder.local.setText(ponto.local);
         viewHolder.horario.setText(ponto.inicio+ " as "+ponto.termino);
+        Picasso.get().load(R.drawable.eco_list).transform(new CircleTransform()).into(viewHolder.imageView);
 
-
-        StringBuilder dias = new StringBuilder();
-
-
-        for (Map.Entry<String,Dia> d : ponto.getDias().entrySet()) {
-
-            dias.append(" ").append(d.getValue().getLabel());
-//            Toast.makeText(activity, pair.getValue().getLabel(), Toast.LENGTH_SHORT).show();
-
-        }
-        viewHolder.dias.setText(dias.toString());
+        viewHolder.dias.setText(ponto.getDiasInline());
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                FragmentUtils.replace(activity, new DetalhesFragment().newInstance(ponto,1));
             }
         });
 
@@ -89,6 +76,7 @@ public class LocalidadesAdapter extends RecyclerView.Adapter<LocalidadesAdapter.
         private TextView local;
         private TextView horario;
         private TextView dias;
+        private ImageView imageView;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -96,6 +84,7 @@ public class LocalidadesAdapter extends RecyclerView.Adapter<LocalidadesAdapter.
             local = itemView.findViewById(R.id.textLocal);
             horario = itemView.findViewById(R.id.textHorario);
             dias = itemView.findViewById(R.id.textDias);
+            imageView = itemView.findViewById(R.id.imageRow);
 
 
         }

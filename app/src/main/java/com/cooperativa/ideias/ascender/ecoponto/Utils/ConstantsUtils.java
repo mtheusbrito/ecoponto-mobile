@@ -6,4 +6,9 @@ public class ConstantsUtils {
     public static final String PROVIDER = "provider";
     public static final String BANCO_PONTOS = "pontos";
     public static final String DIAS = "dias" ;
+    public static final String PREFERENCES = "PREF";
+    public static final String FIRST = "FIRST";
+
+    public static final String PONTO = "PONTO";
+    public static final String SCREEN = "SCREEN";
 }
