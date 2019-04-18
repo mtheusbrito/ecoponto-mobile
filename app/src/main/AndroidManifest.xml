@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cooperativa.ideias.ascender.ecoponto"
     tools:ignore="MissingLeanbackLauncher">
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -79,7 +78,10 @@
         </activity>
         <activity
             android:name=".v2.activitys.MainActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${google_map_key}" />
@@ -87,7 +89,9 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-4036318734376935~9692211326"/>
 
 
         <!-- //Chamada da Activity principal- MainActivity -->

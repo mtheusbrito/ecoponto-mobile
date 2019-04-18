@@ -11,94 +11,167 @@ import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.ConstantsUtils;
+import com.cooperativa.ideias.ascender.ecoponto.Utils.EventMessage;
+import com.cooperativa.ideias.ascender.ecoponto.Utils.EventObject;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.FragmentUtils;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.PermissionUtils;
 import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.LocalidadesFragment;
 import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.MapaFragment;
 import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.SobreFragment;
+import com.cooperativa.ideias.ascender.ecoponto.v2.models.Cidade;
+import com.google.android.gms.maps.model.LatLng;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 
-public class MainActivity  extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
+    private Toolbar toolbar;
+    private Spinner spinner;
+    private Cidade cidade;
+    private BottomNavigationView navigation;
+    private ArrayList<Cidade> cidades;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+            = item -> {
+        Fragment fragment = null;
+        switch (item.getItemId()) {
+            case R.id.navigation_mapa:
+                toolbar.setVisibility(View.VISIBLE);
+                spinner.setVisibility(View.VISIBLE);
+                fragment = MapaFragment.newInstance(cidade);
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment fragment = null;
-            switch (item.getItemId()) {
-                case R.id.navigation_mapa:
-                   fragment = new MapaFragment();
+                break;
 
-                    break;
-
-                case R.id.navigation_localidades:
-
-                    fragment = new LocalidadesFragment();
-                    break;
-                case R.id.navigation_sobre:
-
-                    fragment = new SobreFragment();
-                    break;
-            }
-
-            FragmentUtils.replace(MainActivity.this, fragment);
-            return true;
+            case R.id.navigation_localidades:
+                toolbar.setVisibility(View.VISIBLE);
+                spinner.setVisibility(View.GONE);
+                fragment = new LocalidadesFragment();
+                break;
+            case R.id.navigation_sobre:
+                toolbar.setVisibility(View.GONE);
+                fragment = new SobreFragment();
+                break;
         }
+
+        FragmentUtils.replace(MainActivity.this, fragment);
+        return true;
     };
 
 
-    protected  void onCreate(Bundle savedInsanceState){
+    protected void onCreate(Bundle savedInsanceState) {
         super.onCreate(savedInsanceState);
         setContentView(R.layout.v2_main_activity);
+        initView();
+        setCidades();
+        initSpinnerCidade();
 
 
+    }
 
-
-
-        FragmentUtils.replace(MainActivity.this, new MapaFragment());
-        BottomNavigationView navigation = findViewById(R.id.navigation);
-//        BottomNavigationViewHelper.removeShiftMode(navigation);
+    private void initView() {
+        toolbar = findViewById(R.id.toolbarMain);
+        setSupportActionBar(toolbar);
+        spinner = findViewById(R.id.spinnerCidades);
+        navigation = findViewById(R.id.navigation);
+//        FragmentUtils.replace(MainActivity.this, new MapaFragment());
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+    }
+
+    private void initSpinnerCidade() {
+        ArrayAdapter<Cidade> adapter = new ArrayAdapter<>(MainActivity.this, R.layout.v2_adapter_spinner, cidades);
+        spinner.setAdapter(adapter);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                cidade = cidades.get(position);
+                FragmentUtils.replace(MainActivity.this, MapaFragment.newInstance(cidade));
+//                    EventBus.getDefault().post(new EventObject(cidade));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
 
-    public static class BottomNavigationViewHelper {
-        @SuppressLint("RestrictedApi")
-        public static void removeShiftMode(BottomNavigationView view) {
-            BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);
-            try {
-                Field shiftingMode = menuView.getClass().getDeclaredField("mShiftingMode");
-                shiftingMode.setAccessible(true);
-                shiftingMode.setBoolean(menuView, false);
-                shiftingMode.setAccessible(false);
-                for (int i = 0; i < menuView.getChildCount(); i++) {
-                    BottomNavigationItemView item = (BottomNavigationItemView) menuView.getChildAt(i);
-                    //noinspection RestrictedApi
-                    item.setShifting(false);
-                    // set once again checked value, so view will be updated
-                    //noinspection RestrictedApi
-                    item.setChecked(item.getItemData().isChecked());
-                }
-            } catch (NoSuchFieldException e) {
-                Log.e("BottomNav", "Unable to get shift mode field", e);
-            } catch (IllegalAccessException e) {
-                Log.e("BottomNav", "Unable to change value of shift mode", e);
-            }
-        }
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+//        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 
     @Override
-    protected void onRestart(){
-        super.onRestart();
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_default, menu);
+        return true;
     }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+//        Integer id = menu.get
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.action_sobre_os_pontos:
+                    modalInformacoes();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void modalInformacoes() {
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View view = layoutInflater.inflate(R.layout.v2_dialog_informacoes, null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(view);
+        builder.setTitle("Informações");
+        builder.setCancelable(true);
+
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+    }
+
+
+
+    private void setCidades() {
+        cidades = new ArrayList<>();
+
+        Cidade cidade = new Cidade(0, "Itaperuna", "-21.2002", "-41.8803");
+        Cidade cidade1 = new Cidade(0, "Teste", "-21.2002", "-41.8803");
+
+        cidades.add(cidade);
+        cidades.add(cidade1);
+    }
+
 }

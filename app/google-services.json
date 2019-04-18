@@ -47,7 +47,15 @@
           }
         },
         {
-          "client_id": "216816453741-i0sijq14hne0ihfdkrooeenpdnpkuokp.apps.googleusercontent.com",
+          "client_id": "216816453741-p4ks5rv9afbth99f3pja5hif29jtv8kg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cooperativa.ideias.ascender.ecoponto",
+            "certificate_hash": "c7664ffd6450f30cbc57d036f2529a00a23aa0e0"
+          }
+        },
+        {
+          "client_id": "216816453741-kqgq98nc3hcbfdci3dj070g8su5sk5nq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -57,20 +65,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "216816453741-kqgq98nc3hcbfdci3dj070g8su5sk5nq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

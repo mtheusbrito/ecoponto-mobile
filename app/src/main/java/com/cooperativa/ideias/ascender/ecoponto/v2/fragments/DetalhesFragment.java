@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +12,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.cooperativa.ideias.ascender.ecoponto.Constants;
 import com.cooperativa.ideias.ascender.ecoponto.R;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.ConstantsUtils;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.FragmentUtils;
+import com.cooperativa.ideias.ascender.ecoponto.v2.models.Cidade;
 import com.cooperativa.ideias.ascender.ecoponto.v2.models.Ponto;
 import com.squareup.picasso.Picasso;
 
@@ -24,14 +23,16 @@ public class DetalhesFragment extends Fragment {
 
     private Bundle bundle;
     private Ponto ponto;
+    private  Cidade cidade;
     private Integer screen;
     private TextView textViewLocal, textViewHorario, textViewDias, textViewDescricao;
     private ImageView imageView;
 
-    public DetalhesFragment newInstance(Ponto ponto, Integer screen){
+    public DetalhesFragment newInstance(Ponto ponto, Cidade cidade, Integer screen){
         DetalhesFragment detalhesFragment = new DetalhesFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(ConstantsUtils.PONTO, ponto);
+        bundle.putParcelable(ConstantsUtils.CIDADE, cidade);
         bundle.putInt(ConstantsUtils.SCREEN, screen);
         detalhesFragment.setArguments(bundle);
         return detalhesFragment;
@@ -80,6 +81,7 @@ public class DetalhesFragment extends Fragment {
         bundle = getArguments();
         if(bundle != null){
             ponto = bundle.getParcelable(ConstantsUtils.PONTO);
+            cidade = bundle.getParcelable(ConstantsUtils.CIDADE);
             screen = bundle.getInt(ConstantsUtils.SCREEN);
             setDados();
         }
@@ -97,9 +99,11 @@ public class DetalhesFragment extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
                     if(screen == 0){
-                        FragmentUtils.replace(getActivity(), new MapaFragment());
+                        FragmentUtils.replace(getActivity(),  MapaFragment.newInstance(cidade));
+                    }else {
+                        FragmentUtils.replace(getActivity(), new LocalidadesFragment());
                     }
-                    FragmentUtils.replace(getActivity(), new LocalidadesFragment());
+
 
                     return true;
                 }
