@@ -7,13 +7,17 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
+
+import java.util.List;
 
 public class FragmentUtils {
     public static void replace(AppCompatActivity activity, Fragment fragment){
@@ -36,6 +40,22 @@ public class FragmentUtils {
         transaction.commit();
 
     }
+
+
+
+    public static void replaceWithReturn(FragmentActivity activity, Fragment fragment){
+        replaceWithReturn(activity, fragment, R.id.container);
+    }
+
+    private static void replaceWithReturn(FragmentActivity activity, Fragment fragment, int container) {
+        FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
+        transaction.replace(container, fragment, ConstantsUtils.DETALHES);
+        transaction.addToBackStack(null);
+        transaction.commit();
+
+    }
+
+
 
     @SuppressLint("PrivateResource")
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -80,5 +100,8 @@ public class FragmentUtils {
 
 
     }
+
+
+
 
 }

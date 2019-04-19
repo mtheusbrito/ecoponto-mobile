@@ -1,6 +1,7 @@
 package com.cooperativa.ideias.ascender.ecoponto.v2.activitys;
 
 import android.annotation.SuppressLint;
+
 import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
@@ -11,6 +12,8 @@ import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -30,6 +33,7 @@ import com.cooperativa.ideias.ascender.ecoponto.Utils.EventMessage;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.EventObject;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.FragmentUtils;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.PermissionUtils;
+import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.DetalhesFragment;
 import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.LocalidadesFragment;
 import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.MapaFragment;
 import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.SobreFragment;
@@ -92,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         navigation = findViewById(R.id.navigation);
 //        FragmentUtils.replace(MainActivity.this, new MapaFragment());
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        Toast.makeText(this, "OnResume", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -168,10 +173,25 @@ public class MainActivity extends AppCompatActivity {
         cidades = new ArrayList<>();
 
         Cidade cidade = new Cidade(0, "Itaperuna", "-21.2002", "-41.8803");
-        Cidade cidade1 = new Cidade(0, "Teste", "-21.2002", "-41.8803");
+
 
         cidades.add(cidade);
-        cidades.add(cidade1);
     }
 
+    @Override
+    public void onBackPressed() {
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.container);
+        if (currentFragment instanceof DetalhesFragment)
+        {
+            ((DetalhesFragment)currentFragment).onBackPressed();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 }

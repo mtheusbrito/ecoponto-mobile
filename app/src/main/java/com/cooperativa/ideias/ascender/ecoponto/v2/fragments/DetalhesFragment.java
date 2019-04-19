@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -86,30 +87,10 @@ public class DetalhesFragment extends Fragment {
             setDados();
         }
     }
-
-
-
-    public void onResume() {
-        super.onResume();
-
-        getView().setFocusableInTouchMode(true);
-        getView().requestFocus();
-        getView().setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-                    if(screen == 0){
-                        FragmentUtils.replace(getActivity(),  MapaFragment.newInstance(cidade));
-                    }else {
-                        FragmentUtils.replace(getActivity(), new LocalidadesFragment());
-                    }
-
-
-                    return true;
-                }
-
-                return false;
-            }
-        });
+//
+    public void onBackPressed() {
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.popBackStack(fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount()-1).getId(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
+
 }

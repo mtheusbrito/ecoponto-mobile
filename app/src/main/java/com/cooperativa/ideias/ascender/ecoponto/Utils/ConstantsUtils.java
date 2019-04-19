@@ -12,4 +12,5 @@ public class ConstantsUtils {
     public static final String PONTO = "PONTO";
     public static final String SCREEN = "SCREEN";
     public static final String CIDADE = "CIDADE";
+    public static final String DETALHES = "DETALHES";
 }

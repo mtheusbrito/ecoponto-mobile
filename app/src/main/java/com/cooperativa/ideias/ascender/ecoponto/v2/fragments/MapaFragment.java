@@ -56,6 +56,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.v2_mapa_fragment, container, false);
+        //iniciando widgets da view
         initView();
         return view;
     }
@@ -75,10 +76,9 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
         getPontos();
 
 
-
-
     }
 
+    //retornando a lista de pontos contidas no realtime do database do firebase
     private void getPontos() {
         pontos = new ArrayList<>();
         Query databasePontos = ConfiguracoesFirebase.getPontos();
@@ -98,6 +98,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
                     e.printStackTrace();
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -107,20 +108,21 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void setarPontos(ArrayList<Ponto> pontos) {
-        for(Ponto ponto: pontos){
+        for (Ponto ponto : pontos) {
             setarNoMapa(ponto);
         }
     }
+
     private void setarNoMapa(Ponto ponto) {
-        try{
-                final  MarkerOptions markerOptions = new MarkerOptions();
-                    Double la = Double.valueOf(ponto.getLatitude());
-                    Double lo = Double.valueOf(ponto.getLongitude());
-                    LatLng latLng = new LatLng(la,lo);
-                    markerOptions.position(latLng).title(ponto.getLocal());
+        try {
+            final MarkerOptions markerOptions = new MarkerOptions();
+            Double la = Double.valueOf(ponto.getLatitude());
+            Double lo = Double.valueOf(ponto.getLongitude());
+            LatLng latLng = new LatLng(la, lo);
+            markerOptions.position(latLng).title(ponto.getLocal());
 //                    markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
 
-            Picasso.get().load(R.drawable.eco_list).resize(50,50).transform(new CircleTransform()).into(new Target() {
+            Picasso.get().load(R.drawable.eco_list).resize(50, 50).transform(new CircleTransform()).into(new Target() {
                 @Override
                 public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                     markerOptions.icon(BitmapDescriptorFactory.fromBitmap(bitmap));
@@ -139,27 +141,28 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
                 }
             });
 
-                    mMap.setOnInfoWindowClickListener(marker -> {
-                        Ponto ponto1 = (Ponto)marker.getTag();
-                        if(ponto1 != null){
-                            FragmentUtils.replace(getActivity(), new DetalhesFragment().newInstance(ponto1,cidade,0));
-                        }
+            mMap.setOnInfoWindowClickListener(marker -> {
+                Ponto ponto1 = (Ponto) marker.getTag();
+                if (ponto1 != null) {
+//                            FragmentUtils.replace(getActivity(), new DetalhesFragment().newInstance(ponto1,cidade,0));
 
-                    });
+                    FragmentUtils.replaceWithReturn(getActivity(), new DetalhesFragment().newInstance(ponto1, cidade, 0));
+                }
 
-        }catch (Exception e){
+            });
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    //retornando a cidade escolhida no spinner da classe Main
     private void getCidade() {
         bundle = getArguments();
-        if(bundle!= null){
+        if (bundle != null) {
             cidade = bundle.getParcelable(ConstantsUtils.CIDADE);
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(cidade.getLatitude()),Double.parseDouble(cidade.getLongitude())),15));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(cidade.getLatitude()), Double.parseDouble(cidade.getLongitude())), 15));
 
         }
     }
-
-
 }

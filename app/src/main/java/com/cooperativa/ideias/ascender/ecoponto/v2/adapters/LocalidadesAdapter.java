@@ -55,7 +55,7 @@ public class LocalidadesAdapter extends RecyclerView.Adapter<LocalidadesAdapter.
             @Override
             public void onClick(View v) {
 
-                FragmentUtils.replace(activity, new DetalhesFragment().newInstance(ponto, null, 1));
+                FragmentUtils.replaceWithReturn(activity, new DetalhesFragment().newInstance(ponto, null, 1));
             }
         });
 
