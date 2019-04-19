@@ -1,23 +1,11 @@
 package com.cooperativa.ideias.ascender.ecoponto.v2.activitys;
 
-import android.annotation.SuppressLint;
-
-import android.content.Context;
-import android.content.Intent;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationItemView;
-import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,24 +13,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.ConstantsUtils;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.EventMessage;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.EventObject;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.FragmentUtils;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.PermissionUtils;
 import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.DetalhesFragment;
 import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.LocalidadesFragment;
 import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.MapaFragment;
 import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.SobreFragment;
 import com.cooperativa.ideias.ascender.ecoponto.v2.models.Cidade;
-import com.google.android.gms.maps.model.LatLng;
 
-import org.greenrobot.eventbus.EventBus;
-
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -52,11 +31,18 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView navigation;
     private ArrayList<Cidade> cidades;
 
+    private boolean Map, Loc, Sob;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
         Fragment fragment = null;
+        Map = false;
+        Loc = false;
+        Sob = false;
         switch (item.getItemId()) {
             case R.id.navigation_mapa:
+
+                Map = true;
                 toolbar.setVisibility(View.VISIBLE);
                 spinner.setVisibility(View.VISIBLE);
                 fragment = MapaFragment.newInstance(cidade);
@@ -64,25 +50,35 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.navigation_localidades:
+                Loc= true;
                 toolbar.setVisibility(View.VISIBLE);
                 spinner.setVisibility(View.GONE);
                 fragment = new LocalidadesFragment();
                 break;
             case R.id.navigation_sobre:
+                Sob = true;
                 toolbar.setVisibility(View.GONE);
                 fragment = new SobreFragment();
+                break;
+
+            default:
                 break;
         }
 
         FragmentUtils.replace(MainActivity.this, fragment);
+
         return true;
     };
+
+
+
 
 
     protected void onCreate(Bundle savedInsanceState) {
         super.onCreate(savedInsanceState);
         setContentView(R.layout.v2_main_activity);
         initView();
+
         setCidades();
         initSpinnerCidade();
 
@@ -90,13 +86,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+
         toolbar = findViewById(R.id.toolbarMain);
         setSupportActionBar(toolbar);
         spinner = findViewById(R.id.spinnerCidades);
         navigation = findViewById(R.id.navigation);
-//        FragmentUtils.replace(MainActivity.this, new MapaFragment());
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        Toast.makeText(this, "OnResume", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -147,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.action_sobre_os_pontos:
-                    modalInformacoes();
+                modalInformacoes();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -158,7 +153,6 @@ public class MainActivity extends AppCompatActivity {
         View view = layoutInflater.inflate(R.layout.v2_dialog_informacoes, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(view);
-        builder.setTitle("Informações");
         builder.setCancelable(true);
 
 
@@ -166,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
 
     }
-
 
 
     private void setCidades() {
@@ -178,17 +171,23 @@ public class MainActivity extends AppCompatActivity {
         cidades.add(cidade);
     }
 
+
+
     @Override
     public void onBackPressed() {
+
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.container);
-        if (currentFragment instanceof DetalhesFragment)
-        {
-            ((DetalhesFragment)currentFragment).onBackPressed();
+
+        if (currentFragment instanceof DetalhesFragment) {
+            ((DetalhesFragment) currentFragment).onBackPressed();
+
+
         } else {
-            super.onBackPressed();
+            if(Map || Loc ||Sob){
+                finish();
+            }
         }
     }
-
 
     @Override
     protected void onResume() {

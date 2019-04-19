@@ -36,7 +36,8 @@ public class FragmentUtils {
 
     private static void replace(FragmentActivity activity, Fragment fragment, int container) {
         FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
-        transaction.replace(container, fragment);
+        transaction.replace(container, fragment , fragment.getClass().getSimpleName());
+        transaction.addToBackStack(null);
         transaction.commit();
 
     }

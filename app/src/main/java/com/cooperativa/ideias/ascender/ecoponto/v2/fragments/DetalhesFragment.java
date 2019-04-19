@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +22,7 @@ import com.cooperativa.ideias.ascender.ecoponto.v2.models.Cidade;
 import com.cooperativa.ideias.ascender.ecoponto.v2.models.Ponto;
 import com.squareup.picasso.Picasso;
 
-public class DetalhesFragment extends Fragment {
+public class DetalhesFragment extends Fragment implements OnBackPressed{
 
     private Bundle bundle;
     private Ponto ponto;
@@ -47,11 +49,18 @@ public class DetalhesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.v2_detalhes_fragment, container, false);
         getActivity().setTitle("Detalhes");
+
         initView(view);
         getDados();
 
 
         return view;
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
     }
 
@@ -76,6 +85,8 @@ public class DetalhesFragment extends Fragment {
      textViewDescricao = view.findViewById(R.id.textDescricao);
      imageView = view.findViewById(R.id.image);
 
+
+
     }
 
     private void getDados() {
@@ -89,8 +100,12 @@ public class DetalhesFragment extends Fragment {
     }
 //
     public void onBackPressed() {
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.popBackStack(fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount()-1).getId(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
-    }
+//        FragmentManager fragmentManager = getFragmentManager();
+//        fragmentManager.popBackStack(fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount()-1).getId(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
+//
+//
+
+        getActivity().getSupportFragmentManager().popBackStack();
+}
 
 }

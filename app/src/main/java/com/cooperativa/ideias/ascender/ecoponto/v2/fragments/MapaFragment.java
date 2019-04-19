@@ -34,7 +34,7 @@ import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 
-public class MapaFragment extends Fragment implements OnMapReadyCallback {
+public class MapaFragment extends Fragment implements OnMapReadyCallback, OnBackPressed {
     private ArrayList<Ponto> pontos;
     private GoogleMap mMap;
     private Bundle bundle;
@@ -144,9 +144,9 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
             mMap.setOnInfoWindowClickListener(marker -> {
                 Ponto ponto1 = (Ponto) marker.getTag();
                 if (ponto1 != null) {
-//                            FragmentUtils.replace(getActivity(), new DetalhesFragment().newInstance(ponto1,cidade,0));
+                            FragmentUtils.replace(getActivity(), new DetalhesFragment().newInstance(ponto1,cidade,0));
 
-                    FragmentUtils.replaceWithReturn(getActivity(), new DetalhesFragment().newInstance(ponto1, cidade, 0));
+//                    FragmentUtils.replaceWithReturn(getActivity(), new DetalhesFragment().newInstance(ponto1, cidade, 0));
                 }
 
             });
@@ -164,5 +164,10 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(cidade.getLatitude()), Double.parseDouble(cidade.getLongitude())), 15));
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

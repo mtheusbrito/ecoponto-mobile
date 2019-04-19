@@ -29,7 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocalidadesFragment extends Fragment {
+public class LocalidadesFragment extends Fragment implements OnBackPressed{
     private RecyclerView recyclerView;
     private ArrayList<Ponto> pontos;
     private LocalidadesAdapter adapter;
@@ -99,4 +99,8 @@ public class LocalidadesFragment extends Fragment {
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 }

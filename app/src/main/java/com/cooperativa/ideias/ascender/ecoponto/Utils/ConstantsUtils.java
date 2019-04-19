@@ -13,4 +13,5 @@ public class ConstantsUtils {
     public static final String SCREEN = "SCREEN";
     public static final String CIDADE = "CIDADE";
     public static final String DETALHES = "DETALHES";
+    public static final String CHROME_PACKAGE_NAME = "com.android.chrome";
 }
