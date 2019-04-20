@@ -35,7 +35,7 @@
         android:layout_alignTop="@+id/imageView4"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="42dp"
-        app:srcCompat="@drawable/versao"
+        app:srcCompat="@drawable/versao116"
         tools:ignore="ContentDescription"/>
 
     <ImageView

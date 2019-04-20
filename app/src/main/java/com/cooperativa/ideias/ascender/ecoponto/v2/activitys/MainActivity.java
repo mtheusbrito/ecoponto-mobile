@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -105,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 cidade = cidades.get(position);
                 FragmentUtils.replace(MainActivity.this, MapaFragment.newInstance(cidade));
 //                    EventBus.getDefault().post(new EventObject(cidade));
+                Log.v("CIDADE", cidade.toString());
 
             }
 
@@ -164,11 +166,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setCidades() {
         cidades = new ArrayList<>();
-
         Cidade cidade = new Cidade(0, "Itaperuna", "-21.2002", "-41.8803");
-
-
         cidades.add(cidade);
+
     }
 
 

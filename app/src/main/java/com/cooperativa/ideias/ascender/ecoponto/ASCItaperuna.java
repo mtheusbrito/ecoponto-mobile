@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -27,9 +28,9 @@ public class ASCItaperuna extends AppCompatActivity {
         setContentView( R.layout.activity_ascitaperuna );
 
 
-        mWebView = (WebView) findViewById(R.id.activity_main_webview);
+        mWebView = findViewById(R.id.activity_main_webview);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar2);
+        progressBar = findViewById(R.id.progressBar2);
 
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -61,7 +62,7 @@ public class ASCItaperuna extends AppCompatActivity {
             // TODO Auto-generated method stub
             super.onPageFinished(view, url);
 
-            progressBar.setVisibility(view.GONE);
+            progressBar.setVisibility(View.GONE);
         }
 
     }

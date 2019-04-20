@@ -82,23 +82,23 @@ public class ProtejaOsEcoPontos extends AppCompatActivity {
 
 
         // Declações de funcões para utilçização de Ids com Xml...
-        fabemail = (FloatingActionButton) findViewById ( R.id.fab2 );
-        fabrelatorio = (FloatingActionButton) findViewById ( R.id.fab3 );
-        fabchooseimage = (FloatingActionButton) findViewById ( R.id.fab0 );
-        fabcamera = (FloatingActionButton) findViewById ( R.id.fab1 );
-        fam = (FloatingActionMenu) findViewById ( R.id.fab_menu );
+        fabemail = findViewById ( R.id.fab2 );
+        fabrelatorio = findViewById ( R.id.fab3 );
+        fabchooseimage = findViewById ( R.id.fab0 );
+        fabcamera = findViewById ( R.id.fab1 );
+        fam = findViewById ( R.id.fab_menu );
 
 
         //Progress Dialog para utilização OnActivityResult ao FirebaseStorage...
         storageReference = FirebaseStorage.getInstance ( ).getReference ( );
         mProgressDialog = new ProgressDialog ( this );
         //Declações de instancias para Salvar imagens em firebase....
-        imageView = (ImageView) findViewById ( R.id.uploadImage );
+        imageView = findViewById ( R.id.uploadImage );
         // btnChoose = (Button) findViewById ( R.id.btnChoose );
-        btnUpload = (Button) findViewById ( R.id.btnUpload );
+        btnUpload = findViewById ( R.id.btnUpload );
         storageReference = FirebaseStorage.getInstance ( ).getReference ( );
         mDatabase = FirebaseDatabase.getInstance ( ).getReference ( Constants.DATABASE_PATH_UPLOADS );
-        imageName = (EditText) findViewById(R.id.imageName);
+        imageName = findViewById(R.id.imageName);
           //Declação para inserção do Button na ActionBar para retornar...
         getSupportActionBar ( ).setDisplayHomeAsUpEnabled ( true ); //Mostrar o botão
         getSupportActionBar ( ).setHomeButtonEnabled ( true );      //Ativar o botão

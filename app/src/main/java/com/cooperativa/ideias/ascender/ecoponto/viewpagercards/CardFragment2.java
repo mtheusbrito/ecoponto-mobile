@@ -38,11 +38,11 @@ public class CardFragment2 extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.item2_viewpager, container, false);
 
-        cardView2 = (CardView) view.findViewById(R.id.cardView2);
+        cardView2 = view.findViewById(R.id.cardView2);
         cardView2.setMaxCardElevation(cardView2.getCardElevation() * CardAdapter.MAX_ELEVATION_FACTOR);
 
-        TextView title22 = (TextView) view.findViewById(R.id.title22);
-        Button button22 = (Button)view.findViewById(R.id.button22);
+        TextView title22 = view.findViewById(R.id.title22);
+        Button button22 = view.findViewById(R.id.button22);
 
 
         title22.setText(String.format("Vamos GASTAR %d", getArguments().getInt("position")));

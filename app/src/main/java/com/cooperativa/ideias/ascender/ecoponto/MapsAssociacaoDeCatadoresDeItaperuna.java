@@ -78,7 +78,7 @@ public class MapsAssociacaoDeCatadoresDeItaperuna  extends SupportMapFragment im
 
             LocationManager lm = (LocationManager) getActivity ( ).getSystemService ( Context.LOCATION_SERVICE );
             location = lm.getLastKnownLocation ( LocationManager.GPS_PROVIDER );
-            lm.requestLocationUpdates ( LocationManager.GPS_PROVIDER, 10, 60000, (LocationListener) this );
+            lm.requestLocationUpdates ( LocationManager.GPS_PROVIDER, 10, 60000, this);
 
         }
 
@@ -99,7 +99,7 @@ public class MapsAssociacaoDeCatadoresDeItaperuna  extends SupportMapFragment im
         }
     }
 
-    public void onRequestPermissionsResult(int requestCode, String permission[], int[] grantResult) {
+    public void onRequestPermissionsResult(int requestCode, String[] permission, int[] grantResult) {
         switch (requestCode) {
             case REQUEST_PERMISSIONS: {
                 if (grantResult.length > 0 && grantResult[0] == PackageManager.PERMISSION_GRANTED) {

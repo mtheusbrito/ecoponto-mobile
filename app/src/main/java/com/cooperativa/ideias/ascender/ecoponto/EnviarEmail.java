@@ -26,15 +26,15 @@ public class EnviarEmail extends AppCompatActivity {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_enviar_email );
 
-        mEditTextTo = (EditText) findViewById ( R.id.edit_text_to );
-        mEditTextSubject = (EditText) findViewById ( R.id.edit_text_subject );
-        mEditTextMessage = (EditText) findViewById ( R.id.edit_text_message );
+        mEditTextTo = findViewById ( R.id.edit_text_to );
+        mEditTextSubject = findViewById ( R.id.edit_text_subject );
+        mEditTextMessage = findViewById ( R.id.edit_text_message );
 
         //Declação para inserção do Button na ActionBar para retornar...
         getSupportActionBar ( ).setDisplayHomeAsUpEnabled ( true ); //Mostrar o botão
         getSupportActionBar ( ).setHomeButtonEnabled ( true );      //Ativar o botão
 
-        Button buttonSend = (Button) findViewById ( R.id.button_send );
+        Button buttonSend = findViewById ( R.id.button_send );
         buttonSend.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
             public void onClick(View v) {

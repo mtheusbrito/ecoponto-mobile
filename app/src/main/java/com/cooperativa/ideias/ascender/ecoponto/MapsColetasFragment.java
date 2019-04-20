@@ -133,7 +133,7 @@ public class MapsColetasFragment extends SupportMapFragment implements OnMapRead
         }
     }
 
-    public void onRequestPermissionsResult(int requestCode, String permission[], int[] grantResult) {
+    public void onRequestPermissionsResult(int requestCode, String[] permission, int[] grantResult) {
         switch (requestCode) {
             case REQUEST_PERMISSIONS: {
                 if (grantResult.length > 0 && grantResult[0] == PackageManager.PERMISSION_GRANTED) {
@@ -164,10 +164,10 @@ public class MapsColetasFragment extends SupportMapFragment implements OnMapRead
                 // Inflate the layouts for the info window, title and snippet.
                 View infoWindow = getLayoutInflater ( ).inflate ( R.layout.fragment_dialogo_feira_popular, null );
 
-                TextView title = ((TextView) infoWindow.findViewById ( R.id.title ));
+                TextView title = infoWindow.findViewById ( R.id.title );
                 title.setText ( marker.getTitle ( ) );
 
-                TextView snippet = ((TextView) infoWindow.findViewById ( R.id.snippet ));
+                TextView snippet = infoWindow.findViewById ( R.id.snippet );
                 snippet.setText ( marker.getSnippet ( ) );
 
                 return infoWindow;

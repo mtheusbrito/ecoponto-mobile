@@ -31,7 +31,7 @@ public class InfoMapsDialogFragment extends DialogFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        btnassociados = (Button)view.findViewById(R.id.btnassociados);
+        btnassociados = view.findViewById(R.id.btnassociados);
 
         btnassociados.setOnClickListener(new View.OnClickListener() {
             @Override

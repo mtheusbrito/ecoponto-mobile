@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 
 public interface CardAdapter {
 
-    public final int MAX_ELEVATION_FACTOR = 8;
+    int MAX_ELEVATION_FACTOR = 8;
 
     float getBaseElevation();
 

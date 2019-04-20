@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,21 +15,21 @@ import android.widget.TextView;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.ConstantsUtils;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.FragmentUtils;
 import com.cooperativa.ideias.ascender.ecoponto.v2.models.Cidade;
 import com.cooperativa.ideias.ascender.ecoponto.v2.models.Ponto;
 import com.squareup.picasso.Picasso;
 
-public class DetalhesFragment extends Fragment implements OnBackPressed{
+public class DetalhesFragment extends Fragment implements OnBackPressed {
 
     private Bundle bundle;
     private Ponto ponto;
-    private  Cidade cidade;
+    private Cidade cidade;
     private Integer screen;
     private TextView textViewLocal, textViewHorario, textViewDias, textViewDescricao;
     private ImageView imageView;
+    private Toolbar toolbar;
 
-    public DetalhesFragment newInstance(Ponto ponto, Cidade cidade, Integer screen){
+    public DetalhesFragment newInstance(Ponto ponto, Cidade cidade, Integer screen) {
         DetalhesFragment detalhesFragment = new DetalhesFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(ConstantsUtils.PONTO, ponto);
@@ -48,8 +46,7 @@ public class DetalhesFragment extends Fragment implements OnBackPressed{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.v2_detalhes_fragment, container, false);
-        getActivity().setTitle("Detalhes");
-
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         initView(view);
         getDados();
 
@@ -66,9 +63,9 @@ public class DetalhesFragment extends Fragment implements OnBackPressed{
 
     @SuppressLint("SetTextI18n")
     private void setDados() {
-        if(ponto.getUrl().isEmpty() || ponto.getUrl() == null){
+        if (ponto.getUrl().isEmpty() || ponto.getUrl() == null) {
             Picasso.get().load(R.drawable.eco_list).into(imageView);
-        }else {
+        } else {
             Picasso.get().load(ponto.getUrl()).into(imageView);
         }
         textViewLocal.setText(ponto.getLocal());
@@ -79,26 +76,32 @@ public class DetalhesFragment extends Fragment implements OnBackPressed{
     }
 
     private void initView(View view) {
-     textViewLocal = view.findViewById(R.id.textLocal);
-     textViewHorario = view.findViewById(R.id.textHorario);
-     textViewDias = view.findViewById(R.id.textDias);
-     textViewDescricao = view.findViewById(R.id.textDescricao);
-     imageView = view.findViewById(R.id.image);
-
+        textViewLocal = view.findViewById(R.id.textLocal);
+        textViewHorario = view.findViewById(R.id.textHorario);
+        textViewDias = view.findViewById(R.id.textDias);
+        textViewDescricao = view.findViewById(R.id.textDescricao);
+        imageView = view.findViewById(R.id.image);
+        toolbar = view.findViewById(R.id.toolbar);
+        toolbar.setTitle("Detalhes");
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_w));
+        toolbar.setNavigationOnClickListener(v -> {
+            onBackPressed();
+        });
 
 
     }
 
     private void getDados() {
         bundle = getArguments();
-        if(bundle != null){
+        if (bundle != null) {
             ponto = bundle.getParcelable(ConstantsUtils.PONTO);
             cidade = bundle.getParcelable(ConstantsUtils.CIDADE);
             screen = bundle.getInt(ConstantsUtils.SCREEN);
             setDados();
         }
     }
-//
+
+    //
     public void onBackPressed() {
 //        FragmentManager fragmentManager = getFragmentManager();
 //        fragmentManager.popBackStack(fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount()-1).getId(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
@@ -106,6 +109,6 @@ public class DetalhesFragment extends Fragment implements OnBackPressed{
 //
 
         getActivity().getSupportFragmentManager().popBackStack();
-}
+    }
 
 }

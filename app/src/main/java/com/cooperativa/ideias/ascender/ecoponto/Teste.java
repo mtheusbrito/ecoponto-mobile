@@ -58,7 +58,7 @@ public class Teste extends AppCompatActivity implements GoogleApiClient.OnConnec
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-        signInButton = (SignInButton) findViewById(R.id.signInButton);
+        signInButton = findViewById(R.id.signInButton);
 
         signInButton.setSize(SignInButton.SIZE_WIDE);
 
@@ -85,7 +85,7 @@ public class Teste extends AppCompatActivity implements GoogleApiClient.OnConnec
             }
         };
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar);
 
     }
 

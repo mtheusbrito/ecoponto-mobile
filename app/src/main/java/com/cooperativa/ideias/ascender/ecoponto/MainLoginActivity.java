@@ -62,7 +62,7 @@ public class MainLoginActivity extends AppCompatActivity implements GoogleApiCli
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-        signInButton = (SignInButton) findViewById ( R.id.signInButton );
+        signInButton = findViewById ( R.id.signInButton );
 
         signInButton.setSize ( SignInButton.SIZE_WIDE );
 
@@ -88,7 +88,7 @@ public class MainLoginActivity extends AppCompatActivity implements GoogleApiCli
             }
         };
 
-        progressBar = (ProgressBar) findViewById ( R.id.progressBar );
+        progressBar = findViewById ( R.id.progressBar );
 
     }
 

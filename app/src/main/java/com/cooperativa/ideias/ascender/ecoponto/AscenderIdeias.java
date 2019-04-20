@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -26,9 +27,9 @@ public class AscenderIdeias extends AppCompatActivity {
         setContentView(R.layout.activity_ascender_ideias);
 
 
-        mWebView = (WebView) findViewById(R.id.activity_main_webview);
+        mWebView = findViewById(R.id.activity_main_webview);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar1);
+        progressBar = findViewById(R.id.progressBar1);
 
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -61,7 +62,7 @@ public class AscenderIdeias extends AppCompatActivity {
             // TODO Auto-generated method stub
             super.onPageFinished(view, url);
 
-            progressBar.setVisibility(view.GONE);
+            progressBar.setVisibility(View.GONE);
         }
 
     }
