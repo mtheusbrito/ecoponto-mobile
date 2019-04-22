@@ -23,18 +23,15 @@ public class DetalhesFragment extends Fragment implements OnBackPressed {
 
     private Bundle bundle;
     private Ponto ponto;
-    private Cidade cidade;
-    private Integer screen;
+
     private TextView textViewLocal, textViewHorario, textViewDias, textViewDescricao;
     private ImageView imageView;
     private Toolbar toolbar;
 
-    public DetalhesFragment newInstance(Ponto ponto, Cidade cidade, Integer screen) {
+    public DetalhesFragment newInstance(Ponto ponto) {
         DetalhesFragment detalhesFragment = new DetalhesFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(ConstantsUtils.PONTO, ponto);
-        bundle.putParcelable(ConstantsUtils.CIDADE, cidade);
-        bundle.putInt(ConstantsUtils.SCREEN, screen);
         detalhesFragment.setArguments(bundle);
         return detalhesFragment;
 
@@ -95,8 +92,6 @@ public class DetalhesFragment extends Fragment implements OnBackPressed {
         bundle = getArguments();
         if (bundle != null) {
             ponto = bundle.getParcelable(ConstantsUtils.PONTO);
-            cidade = bundle.getParcelable(ConstantsUtils.CIDADE);
-            screen = bundle.getInt(ConstantsUtils.SCREEN);
             setDados();
         }
     }

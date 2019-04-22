@@ -12,11 +12,13 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
 
 public class SobreFragment extends Fragment implements OnBackPressed{
     private ImageView imageView;
+    private TextView textViewCompartilhar;
     public static final String URL = "http://www.ascenderideias.com.br/";
 
 
@@ -42,6 +44,7 @@ public class SobreFragment extends Fragment implements OnBackPressed{
 //        customTabService = new CustomTabService(URL);
 //        customTabService.bindService(getActivity());
         imageView = view.findViewById(R.id.imageView13);
+        textViewCompartilhar = view.findViewById(R.id.textCompartilhar);
         imageView.setOnClickListener(v -> {
 
 
@@ -49,9 +52,19 @@ public class SobreFragment extends Fragment implements OnBackPressed{
 
 
         });
+        textViewCompartilhar.setOnClickListener(v -> compartilhar());
+
 
     }
-
+    private void compartilhar(){
+        Intent intentInvite = new Intent(Intent.ACTION_SEND);
+        intentInvite.setType("text/plain");
+        String body = "https://play.google.com/store/apps/details?id=com.cooperativa.ideias.ascender.ecoponto";
+        String subject = "EcoPonto é um aplicativo para informar a população sobre onde destinar corretamente os resíduos que serão reciclados e/ou reutilizados. Facilitando a localização dos pontos de coleta na sua cidade.";
+        intentInvite.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intentInvite.putExtra(Intent.EXTRA_TEXT, body);
+        startActivity(Intent.createChooser(intentInvite, "Compartilhar usando"));
+    }
     private void openSite() {
 //        Intent intentSite = new Intent(Intent.ACTION_VIEW);
 //        intentSite.setData(Uri.parse(URL));

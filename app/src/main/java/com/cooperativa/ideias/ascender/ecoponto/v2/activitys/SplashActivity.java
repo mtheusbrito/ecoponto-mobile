@@ -7,13 +7,12 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.cooperativa.ideias.ascender.ecoponto.Constants;
 import com.cooperativa.ideias.ascender.ecoponto.R;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.ConstantsUtils;
 
 public class SplashActivity extends AppCompatActivity {
     private SharedPreferences preferences;
-    private Boolean first;
+    private Boolean primeiraVez;
 
 
     @Override
@@ -26,16 +25,16 @@ public class SplashActivity extends AppCompatActivity {
 
     private void initView() {
         preferences = getSharedPreferences(ConstantsUtils.PREFERENCES, MODE_PRIVATE);
-        first = preferences.getBoolean(ConstantsUtils.FIRST, true);
+        primeiraVez = preferences.getBoolean(ConstantsUtils.FIRST, true);
 
 
-        if (first) {
+        if (primeiraVez) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     SharedPreferences.Editor editor = preferences.edit();
-                    first = false;
-                    editor.putBoolean(ConstantsUtils.FIRST, first);
+                    primeiraVez = false;
+                    editor.putBoolean(ConstantsUtils.FIRST, primeiraVez);
                     editor.apply();
                     startActivity(new Intent(SplashActivity.this, MainActivity.class));
                     finish();

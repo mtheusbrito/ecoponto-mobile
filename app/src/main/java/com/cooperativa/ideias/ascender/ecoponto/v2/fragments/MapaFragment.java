@@ -49,42 +49,31 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, OnBack
         mapaFragment.setArguments(bundle);
         return mapaFragment;
 
-
     }
-
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.v2_mapa_fragment, container, false);
-        //iniciando widgets da view
-
         initView();
         return view;
     }
-
     private void initView() {
         ((AppCompatActivity)getActivity()).getSupportActionBar().show();
         if(mMap ==null){
             SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
             mapFragment.getMapAsync(this);
-
-
         }
 
     }
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        //carregar cidade e pontos aqui
         getCidade();
         getPontos();
 
 
     }
-
-    //retornando a lista de pontos contidas no realtime do database do firebase
     private void getPontos() {
         pontos = new ArrayList<>();
         Query databasePontos = ConfiguracoesFirebase.getPontos();
@@ -150,7 +139,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, OnBack
             mMap.setOnInfoWindowClickListener(marker -> {
                 Ponto ponto1 = (Ponto) marker.getTag();
                 if (ponto1 != null) {
-                            FragmentUtils.replace(getActivity(), new DetalhesFragment().newInstance(ponto1,cidade,0));
+                            FragmentUtils.replace(getActivity(), new DetalhesFragment().newInstance(ponto1));
 
 //                    FragmentUtils.replaceWithReturn(getActivity(), new DetalhesFragment().newInstance(ponto1, cidade, 0));
                 }
