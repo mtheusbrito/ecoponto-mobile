@@ -200,6 +200,10 @@
     <string name="title_mapa">Ver no mapa</string>
     <string name="title_localidades">Localidades</string>
     <string name="title_sobre">Sobre</string>
+    <string name="oque_e_o_ecoponto">ECOPONTO é um aplicativo que contém informações específicas sobre os serviços de coletas seletivas de certas cidades. O aplicativo dispõe de informes básicos para os dependentes do projeto, contendo basicamente um conjunto de informações relacionadas ao serviço sustentável prestado. Com a possibilidade de alteração e melhorias, enfrenta constantes atualizações que tendem a melhor atender aos consumidores.</string>
+    <string name="objetivo">O objetivo do aplicativo é levar o consumidor deste serviço até os pontos de coleta, facilitando assim o trabalho de quem se disponibiliza a participar das campanhas. O intuito principal é divulgar a ideia e incentivar a prática ambientalista ajudando assim os que dependem dos resíduos que são depositados e também a natureza. Espera-se que esse projeto possa beneficiar os cidadãos de Itaperuna, dando suporte para todos os dependentes dos serviços públicos de coleta seletiva. É esperado que os transtornos existentes para localizar os pontos acabem ou reduzam-se consideravelmente, evitando assim, longas esperas de caminhões, risco de atrasos e demais obstáculos enfrentados.</string>
+    <string name="objetivo_title">Objetivo</string>
+    <string name="o_que_o_ecoponto_text">O que é o Ecoponto?</string>
 
     <!--TODO: Fim das Strings em Uso-->
 

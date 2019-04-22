@@ -16,19 +16,13 @@
 
             android:textSize="20sp"
             android:textStyle="bold"
-            android:text="O que é o Ecoponto?"
+            android:text="@string/o_que_o_ecoponto_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
 
         <TextView
-            android:text="  ECOPONTO é um  aplicativo que contém informações específicas
-sobre os serviços de coletas seletivas de certas cidades. O aplicativo
-dispõe de informes básicos para os dependentes do projeto.
-O aplicativo contém basicamente um conjunto de informações relacionadas
-ao serviço sustentável prestado. Com a possibilidade de alteração e melhorias o
-aplicativo passa por constantes atualizações que tendem a melhor atender aos
-consumidores."
+            android:text="@string/oque_e_o_ecoponto"
             android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -36,22 +30,13 @@ consumidores."
         android:layout_marginTop="16dp"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:text="Objetivo"
+        android:text="@string/objetivo_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
         <TextView
             android:textSize="16sp"
-            android:text="  O objetivo do aplicativo é levar o consumidor deste serviço até os pontos de
-coleta, facilitando assim o trabalho de quem se disponibiliza a participar das
-campanhas. O intuito principal é divulgar a ideia e incentivar a prática ambientalista
-ajudando assim os que dependem dos resíduos que são depositados e também a
-natureza.
-    Espera-se que esse projeto possa beneficiar os cidadãos de Itaperuna, dando
-suporte para todos os dependentes dos serviços públicos de coleta seletiva. Com
-esse aplicativo esperamos que os transtornos existentes para localizar os pontos
-acabem ou reduzam-se consideravelmente, evitando assim, longas esperas de
-caminhões, o risco de atrasos e demais obstáculos enfrentados."
+            android:text="@string/objetivo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

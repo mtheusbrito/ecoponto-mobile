@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.cooperativa.ideias.ascender.ecoponto.R;
 
 public class SobreFragment extends Fragment implements OnBackPressed{
-    private ImageView imageView;
+
     private TextView textViewCompartilhar;
     public static final String URL = "http://www.ascenderideias.com.br/";
 
@@ -43,15 +43,7 @@ public class SobreFragment extends Fragment implements OnBackPressed{
     private void initView(View view) {
 //        customTabService = new CustomTabService(URL);
 //        customTabService.bindService(getActivity());
-        imageView = view.findViewById(R.id.imageView13);
         textViewCompartilhar = view.findViewById(R.id.textCompartilhar);
-        imageView.setOnClickListener(v -> {
-
-
-        openSite();
-
-
-        });
         textViewCompartilhar.setOnClickListener(v -> compartilhar());
 
 
