@@ -59,5 +59,8 @@
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:color">#000</item>
     </style>
+    <style name="spinner_style">
+        <item name="android:textSize">10sp</item>
+    </style>
 
 </resources>

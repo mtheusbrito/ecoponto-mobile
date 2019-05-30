@@ -20,9 +20,9 @@
 
     <!--v2 -->
     <color name="v2colorPrimary">#00ad5e</color>
-    <color name="v2colorPrimaryDark">#007944</color>
+    <color name="v2colorPrimaryDark">#40916A</color>
     <color name="v2colorAcent">#64d300</color>
-
+    <color name="colorSpinnerBackground">#FF04DD7B</color>
 
 
 </resources>

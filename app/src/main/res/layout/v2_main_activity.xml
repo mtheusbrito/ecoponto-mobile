@@ -1,32 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical">
+
+
     <android.support.v7.widget.Toolbar
-        app:titleTextColor="@android:color/white"
+        app:title="Localidades"
         android:id="@+id/toolbarMain"
-        android:background="@color/v2colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/v2colorPrimary"
+        app:titleTextColor="@android:color/white">
 
-        <Spinner
-
-            android:gravity="start"
-            android:backgroundTint="@android:color/white"
-            android:id="@+id/spinnerCidades"
+        <LinearLayout
+            android:id="@+id/linearSpinners"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textEstado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Estado:"
+                android:textColor="@android:color/white" />
+
+            <Spinner
+                android:id="@+id/spinnerEstados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/white"
+                android:hint="Estado" />
+
+            <TextView
+                android:id="@+id/textCidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Cidade:"
+                android:textColor="@android:color/white" />
+
+            <Spinner
+
+                android:id="@+id/spinnerCidades"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/white"
+                android:hint="Cidade" />
+        </LinearLayout>
+
     </android.support.v7.widget.Toolbar>
-<FrameLayout
-    android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1"
-    android:animateLayoutChanges="true"
-    />
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:animateLayoutChanges="true" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

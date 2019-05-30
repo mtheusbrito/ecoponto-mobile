@@ -10,6 +10,7 @@ public class Cidade implements Serializable, Parcelable {
     private String nome;
     private String latitude;
     private String longitude;
+    private Estado estado;
 
 
     protected Cidade(Parcel in) {
@@ -17,6 +18,7 @@ public class Cidade implements Serializable, Parcelable {
         nome = in.readString();
         latitude = in.readString();
         longitude = in.readString();
+
     }
 
     public static final Creator<Cidade> CREATOR = new Creator<Cidade>() {
@@ -39,11 +41,20 @@ public class Cidade implements Serializable, Parcelable {
     public Cidade(){
 
     }
-    public Cidade(int id, String nome, String latitude, String longitude) {
+    public Cidade(int id, String nome, String latitude, String longitude, Estado estado) {
         this.id = id;
         this.nome = nome;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.estado = estado;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
     public int getId() {
@@ -89,5 +100,9 @@ public class Cidade implements Serializable, Parcelable {
         dest.writeString(nome);
         dest.writeString(latitude);
         dest.writeString(longitude);
+
+
     }
+
+
 }
