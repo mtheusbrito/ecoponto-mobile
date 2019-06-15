@@ -14,4 +14,6 @@ public class ConstantsUtils {
     public static final String CIDADE = "CIDADE";
     public static final String DETALHES = "DETALHES";
     public static final String CHROME_PACKAGE_NAME = "com.android.chrome";
+    public static final String LONGITUDE = "LONGITUDE";
+    public static final String LATITUDE = "LATITUDE";
 }

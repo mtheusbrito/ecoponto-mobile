@@ -1,5 +1,6 @@
 package com.cooperativa.ideias.ascender.ecoponto.v2.fragments;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -10,12 +11,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.CircleTransform;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.ConstantsUtils;
 import com.cooperativa.ideias.ascender.ecoponto.Utils.FragmentUtils;
 import com.cooperativa.ideias.ascender.ecoponto.v2.DAO.ConfiguracoesFirebase;
+import com.cooperativa.ideias.ascender.ecoponto.v2.activitys.ProjetarActivity;
 import com.cooperativa.ideias.ascender.ecoponto.v2.models.Cidade;
 import com.cooperativa.ideias.ascender.ecoponto.v2.models.Ponto;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -71,6 +74,13 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, OnBack
         mMap = googleMap;
         getCidade();
         getPontos();
+        mMap.setOnMapLongClickListener(latLng -> {
+//
+            Bundle bundle = new Bundle();
+            bundle.putString(ConstantsUtils.LATITUDE, String.valueOf(latLng.latitude));
+            bundle.putString(ConstantsUtils.LONGITUDE, String.valueOf(latLng.longitude));
+            startActivity(new Intent(getActivity(), ProjetarActivity.class).putExtras(bundle));
+        });
 
 
     }

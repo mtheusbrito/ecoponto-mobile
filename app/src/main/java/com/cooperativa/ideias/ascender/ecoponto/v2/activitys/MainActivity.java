@@ -200,22 +200,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void modalInformacoes() {
-//        LayoutInflater layoutInflater = LayoutInflater.from(this);
-//        View view = layoutInflater.inflate(R.layout.v2_dialog_informacoes, null);
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setView(view);
-//        builder.setCancelable(true);
-//
-//
-//        AlertDialog alertDialog = builder.create();
-//        alertDialog.show();
 
         AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
         alertDialog.setCanceledOnTouchOutside(true);
         alertDialog.setCancelable(true);
         alertDialog.setTitle("Como o app funciona?");
         alertDialog.setMessage(getResources().getString(R.string.text_informações));
-//
+
         alertDialog.show();
 
     }
