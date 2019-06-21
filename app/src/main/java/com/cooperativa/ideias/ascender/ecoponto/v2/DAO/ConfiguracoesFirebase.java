@@ -55,4 +55,8 @@ public class ConfiguracoesFirebase  {
     public static Query getDias(String id) {
         return FirebaseDatabase.getInstance().getReference(ConstantsUtils.BANCO_PONTOS).child(id).child(ConstantsUtils.DIAS);
     }
+
+    public static Query getParceiros() {
+        return FirebaseDatabase.getInstance().getReference(ConstantsUtils.BANCO_PARCEIROS);
+    }
 }

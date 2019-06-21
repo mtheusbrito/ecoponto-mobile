@@ -74,13 +74,15 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, OnBack
         mMap = googleMap;
         getCidade();
         getPontos();
-        mMap.setOnMapLongClickListener(latLng -> {
-//
-            Bundle bundle = new Bundle();
-            bundle.putString(ConstantsUtils.LATITUDE, String.valueOf(latLng.latitude));
-            bundle.putString(ConstantsUtils.LONGITUDE, String.valueOf(latLng.longitude));
-            startActivity(new Intent(getActivity(), ProjetarActivity.class).putExtras(bundle));
-        });
+
+
+
+//        mMap.setOnMapLongClickListener(latLng -> {
+//            Bundle bundle = new Bundle();
+//            bundle.putString(ConstantsUtils.LATITUDE, String.valueOf(latLng.latitude));
+//            bundle.putString(ConstantsUtils.LONGITUDE, String.valueOf(latLng.longitude));
+//            startActivity(new Intent(getActivity(), ProjetarActivity.class).putExtras(bundle));
+//        });
 
 
     }
@@ -125,7 +127,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, OnBack
             Double lo = Double.valueOf(ponto.getLongitude());
             LatLng latLng = new LatLng(la, lo);
             markerOptions.position(latLng).title(ponto.getLocal());
-//                    markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+
 
             Picasso.get().load(R.drawable.eco_list).resize(50, 50).transform(new CircleTransform()).into(new Target() {
                 @Override
@@ -150,8 +152,6 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, OnBack
                 Ponto ponto1 = (Ponto) marker.getTag();
                 if (ponto1 != null) {
                             FragmentUtils.replace(getActivity(), new DetalhesFragment().newInstance(ponto1));
-
-//                    FragmentUtils.replaceWithReturn(getActivity(), new DetalhesFragment().newInstance(ponto1, cidade, 0));
                 }
 
             });

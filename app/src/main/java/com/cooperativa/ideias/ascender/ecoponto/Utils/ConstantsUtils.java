@@ -16,4 +16,5 @@ public class ConstantsUtils {
     public static final String CHROME_PACKAGE_NAME = "com.android.chrome";
     public static final String LONGITUDE = "LONGITUDE";
     public static final String LATITUDE = "LATITUDE";
+    public static final String BANCO_PARCEIROS = "parceiros";
 }

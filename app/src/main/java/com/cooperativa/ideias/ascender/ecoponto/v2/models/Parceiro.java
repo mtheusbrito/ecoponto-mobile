@@ -1,32 +1,22 @@
 package com.cooperativa.ideias.ascender.ecoponto.v2.models;
 
 public class Parceiro {
-    private String id, nome, telefone, endereco, avatar, descricao, site;
+
+   private String id, nome, descricao, url;
 
 
-    public Parceiro(String id, String nome, String telefone, String endereco, String avatar,String descricao, String site) {
+    public Parceiro(String id, String nome, String descricao, String url) {
         this.id = id;
         this.nome = nome;
-        this.telefone = telefone;
-        this.endereco = endereco;
-        this.avatar = avatar;
-        this.site = site;
         this.descricao = descricao;
+        this.url = url;
     }
+    public Parceiro(){
 
-    public Parceiro() {
     }
 
     public String getId() {
         return id;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public void setId(String id) {
@@ -41,35 +31,19 @@ public class Parceiro {
         this.nome = nome;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getUrl() {
+        return url;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getSite() {
-        return site;
-    }
-
-    public void setSite(String site) {
-        this.site = site;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
