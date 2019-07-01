@@ -1,4 +1,4 @@
-package com.cooperativa.ideias.ascender.ecoponto.v2.fragments;
+package com.cooperativa.ideias.ascender.ecoponto.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -14,9 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.ConstantsUtils;
-import com.cooperativa.ideias.ascender.ecoponto.v2.models.Cidade;
-import com.cooperativa.ideias.ascender.ecoponto.v2.models.Ponto;
+import com.cooperativa.ideias.ascender.ecoponto.utils.ConstantsUtils;
+import com.cooperativa.ideias.ascender.ecoponto.models.Ponto;
 import com.squareup.picasso.Picasso;
 
 public class DetalhesFragment extends Fragment implements OnBackPressed {

@@ -1,4 +1,4 @@
-package com.cooperativa.ideias.ascender.ecoponto.v2.models;
+package com.cooperativa.ideias.ascender.ecoponto.models;
 
 public class Parceiro {
 

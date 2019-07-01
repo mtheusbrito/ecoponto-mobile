@@ -1,6 +1,5 @@
-package com.cooperativa.ideias.ascender.ecoponto.v2.fragments;
+package com.cooperativa.ideias.ascender.ecoponto.fragments;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -11,16 +10,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.CircleTransform;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.ConstantsUtils;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.FragmentUtils;
-import com.cooperativa.ideias.ascender.ecoponto.v2.DAO.ConfiguracoesFirebase;
-import com.cooperativa.ideias.ascender.ecoponto.v2.activitys.ProjetarActivity;
-import com.cooperativa.ideias.ascender.ecoponto.v2.models.Cidade;
-import com.cooperativa.ideias.ascender.ecoponto.v2.models.Ponto;
+import com.cooperativa.ideias.ascender.ecoponto.utils.CircleTransform;
+import com.cooperativa.ideias.ascender.ecoponto.utils.ConstantsUtils;
+import com.cooperativa.ideias.ascender.ecoponto.utils.FragmentUtils;
+import com.cooperativa.ideias.ascender.ecoponto.dao.ConfiguracoesFirebase;
+import com.cooperativa.ideias.ascender.ecoponto.models.Cidade;
+import com.cooperativa.ideias.ascender.ecoponto.models.Ponto;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

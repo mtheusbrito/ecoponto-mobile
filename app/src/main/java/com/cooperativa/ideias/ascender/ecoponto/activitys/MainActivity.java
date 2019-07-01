@@ -1,6 +1,5 @@
-package com.cooperativa.ideias.ascender.ecoponto.v2.activitys;
+package com.cooperativa.ideias.ascender.ecoponto.activitys;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -8,7 +7,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,14 +17,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.FragmentUtils;
-import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.DetalhesFragment;
-import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.LocalidadesFragment;
-import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.MapaFragment;
-import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.SobreFragment;
-import com.cooperativa.ideias.ascender.ecoponto.v2.models.Cidade;
-import com.cooperativa.ideias.ascender.ecoponto.v2.models.Estado;
-import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
+import com.cooperativa.ideias.ascender.ecoponto.utils.FragmentUtils;
+import com.cooperativa.ideias.ascender.ecoponto.fragments.DetalhesFragment;
+import com.cooperativa.ideias.ascender.ecoponto.fragments.LocalidadesFragment;
+import com.cooperativa.ideias.ascender.ecoponto.fragments.MapaFragment;
+import com.cooperativa.ideias.ascender.ecoponto.fragments.SobreFragment;
+import com.cooperativa.ideias.ascender.ecoponto.models.Cidade;
+import com.cooperativa.ideias.ascender.ecoponto.models.Estado;
 
 import java.util.ArrayList;
 import java.util.List;

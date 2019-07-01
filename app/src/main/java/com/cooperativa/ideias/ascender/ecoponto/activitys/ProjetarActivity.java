@@ -1,16 +1,11 @@
-package com.cooperativa.ideias.ascender.ecoponto.v2.activitys;
+package com.cooperativa.ideias.ascender.ecoponto.activitys;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.cooperativa.ideias.ascender.ecoponto.Constants;
 import com.cooperativa.ideias.ascender.ecoponto.R;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.ConstantsUtils;
-import com.google.android.gms.maps.model.LatLng;
+import com.cooperativa.ideias.ascender.ecoponto.utils.ConstantsUtils;
 
 public class ProjetarActivity extends AppCompatActivity {
 

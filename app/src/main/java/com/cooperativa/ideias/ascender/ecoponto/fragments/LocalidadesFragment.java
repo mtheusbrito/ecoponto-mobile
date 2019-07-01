@@ -1,11 +1,9 @@
-package com.cooperativa.ideias.ascender.ecoponto.v2.fragments;
+package com.cooperativa.ideias.ascender.ecoponto.fragments;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,13 +12,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
-import com.cooperativa.ideias.ascender.ecoponto.v2.DAO.ConfiguracoesFirebase;
-import com.cooperativa.ideias.ascender.ecoponto.v2.adapters.LocalidadesAdapter;
-import com.cooperativa.ideias.ascender.ecoponto.v2.models.Ponto;
+import com.cooperativa.ideias.ascender.ecoponto.dao.ConfiguracoesFirebase;
+import com.cooperativa.ideias.ascender.ecoponto.adapters.LocalidadeAdapter;
+import com.cooperativa.ideias.ascender.ecoponto.models.Ponto;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -37,7 +34,7 @@ import static android.content.ContentValues.TAG;
 public class LocalidadesFragment extends Fragment implements OnBackPressed {
     private RecyclerView recyclerView;
     private ArrayList<Ponto> pontos;
-    private LocalidadesAdapter adapter;
+    private LocalidadeAdapter adapter;
     private ProgressBar progressBar;
 
     //Variaveis para AdMobi
@@ -116,7 +113,7 @@ public class LocalidadesFragment extends Fragment implements OnBackPressed {
 
         });
 
-        adapter = new LocalidadesAdapter(getActivity(), pontos, recyclerView);
+        adapter = new LocalidadeAdapter(getActivity(), pontos, recyclerView);
         recyclerView.setAdapter(adapter);
     }
 

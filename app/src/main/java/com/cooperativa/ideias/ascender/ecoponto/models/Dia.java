@@ -1,6 +1,4 @@
-package com.cooperativa.ideias.ascender.ecoponto.v2.models;
-
-import android.util.Log;
+package com.cooperativa.ideias.ascender.ecoponto.models;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.cooperativa.ideias.ascender.ecoponto.v2.activitys;
+package com.cooperativa.ideias.ascender.ecoponto.activitys;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.ConstantsUtils;
+import com.cooperativa.ideias.ascender.ecoponto.utils.ConstantsUtils;
 
 public class SplashActivity extends AppCompatActivity {
     private SharedPreferences preferences;

@@ -1,4 +1,4 @@
-package com.cooperativa.ideias.ascender.ecoponto.Utils;
+package com.cooperativa.ideias.ascender.ecoponto.utils;
 
 public class ConstantsUtils {
     public static final String URL_AI = "http://www.ascenderideias.com.br/";

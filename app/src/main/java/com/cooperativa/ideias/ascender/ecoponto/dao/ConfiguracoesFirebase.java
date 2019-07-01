@@ -1,8 +1,6 @@
-package com.cooperativa.ideias.ascender.ecoponto.v2.DAO;
+package com.cooperativa.ideias.ascender.ecoponto.dao;
 
-import android.util.Log;
-
-import com.cooperativa.ideias.ascender.ecoponto.Utils.ConstantsUtils;
+import com.cooperativa.ideias.ascender.ecoponto.utils.ConstantsUtils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

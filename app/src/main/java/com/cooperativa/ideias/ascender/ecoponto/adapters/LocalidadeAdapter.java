@@ -1,4 +1,4 @@
-package com.cooperativa.ideias.ascender.ecoponto.v2.adapters;
+package com.cooperativa.ideias.ascender.ecoponto.adapters;
 
 import android.annotation.SuppressLint;
 import android.os.Build;
@@ -13,21 +13,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.CircleTransform;
-import com.cooperativa.ideias.ascender.ecoponto.Utils.FragmentUtils;
-import com.cooperativa.ideias.ascender.ecoponto.v2.fragments.DetalhesFragment;
-import com.cooperativa.ideias.ascender.ecoponto.v2.models.Ponto;
+import com.cooperativa.ideias.ascender.ecoponto.utils.CircleTransform;
+import com.cooperativa.ideias.ascender.ecoponto.utils.FragmentUtils;
+import com.cooperativa.ideias.ascender.ecoponto.fragments.DetalhesFragment;
+import com.cooperativa.ideias.ascender.ecoponto.models.Ponto;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class LocalidadesAdapter extends RecyclerView.Adapter<LocalidadesAdapter.ViewHolder> {
+public class LocalidadeAdapter extends RecyclerView.Adapter<LocalidadeAdapter.ViewHolder> {
     private List<Ponto> pontos;
     private FragmentActivity activity;
     private RecyclerView recyclerView;
 
 
-    public LocalidadesAdapter(FragmentActivity activity, List<Ponto>  pontos,  RecyclerView recyclerView) {
+    public LocalidadeAdapter(FragmentActivity activity, List<Ponto>  pontos, RecyclerView recyclerView) {
         this.pontos = pontos;
         this.activity = activity;
         this.recyclerView = recyclerView;
@@ -36,14 +36,14 @@ public class LocalidadesAdapter extends RecyclerView.Adapter<LocalidadesAdapter.
 
     @NonNull
     @Override
-    public LocalidadesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new LocalidadesAdapter.ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.v2_adapter_localidades, viewGroup, false));
+    public LocalidadeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        return new LocalidadeAdapter.ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.v2_adapter_localidades, viewGroup, false));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull LocalidadesAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull LocalidadeAdapter.ViewHolder viewHolder, int i) {
         final Ponto ponto = pontos.get(i);
         viewHolder.local.setText(ponto.local);
         viewHolder.horario.setText(ponto.inicio+ " as "+ponto.termino);

@@ -1,4 +1,4 @@
-package com.cooperativa.ideias.ascender.ecoponto.Utils;
+package com.cooperativa.ideias.ascender.ecoponto.utils;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -7,17 +7,13 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
-import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
-
-import java.util.List;
 
 public class FragmentUtils {
     public static void replace(AppCompatActivity activity, Fragment fragment){

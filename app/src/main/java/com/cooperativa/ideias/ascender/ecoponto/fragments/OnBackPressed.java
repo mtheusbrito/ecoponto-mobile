@@ -1,4 +1,4 @@
-package com.cooperativa.ideias.ascender.ecoponto.v2.fragments;
+package com.cooperativa.ideias.ascender.ecoponto.fragments;
 
 public interface OnBackPressed {
 

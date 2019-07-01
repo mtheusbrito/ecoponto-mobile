@@ -1,23 +1,24 @@
-package com.cooperativa.ideias.ascender.ecoponto.v2.fragments;
+package com.cooperativa.ideias.ascender.ecoponto.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.TextView;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
-import com.cooperativa.ideias.ascender.ecoponto.v2.DAO.ConfiguracoesFirebase;
-import com.cooperativa.ideias.ascender.ecoponto.v2.adapters.ParceiroAdapter;
-import com.cooperativa.ideias.ascender.ecoponto.v2.models.Parceiro;
+import com.cooperativa.ideias.ascender.ecoponto.dao.ConfiguracoesFirebase;
+import com.cooperativa.ideias.ascender.ecoponto.adapters.ParceiroAdapter;
+import com.cooperativa.ideias.ascender.ecoponto.models.Parceiro;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.Query;
@@ -29,7 +30,7 @@ import java.util.List;
 public class SobreFragment extends Fragment implements OnBackPressed{
 
     private TextView textViewCompartilhar;
-    private GridView gridView;
+    private RecyclerView recyclerView;
     private List<Parceiro> parceiros;
     private ParceiroAdapter adapter;
 
@@ -48,6 +49,8 @@ public class SobreFragment extends Fragment implements OnBackPressed{
     }
 
     private void preencherLista() {
+        parceiros = new ArrayList<>();
+
         Query databaseParceiros = ConfiguracoesFirebase.getParceiros();
         databaseParceiros.keepSynced(true);
         databaseParceiros.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -62,7 +65,7 @@ public class SobreFragment extends Fragment implements OnBackPressed{
 
                     }
 
-                    adapter.atualiza(parceiros);
+                    adapter.atualizar(parceiros);
                     Log.v("PARCEIROS", parceiros.toString());
 
                 }catch (Exception e){
@@ -76,6 +79,9 @@ public class SobreFragment extends Fragment implements OnBackPressed{
             }
         });
 
+        adapter= new ParceiroAdapter(parceiros, getActivity(), recyclerView);
+        recyclerView.setAdapter(adapter);
+
     }
 
 
@@ -86,10 +92,11 @@ public class SobreFragment extends Fragment implements OnBackPressed{
     }
 
     private void initView(View view) {
-        parceiros = new ArrayList<>();
-        gridView =  view.findViewById(R.id.gridView);
-        adapter = new ParceiroAdapter( getActivity(), parceiros);
-        gridView.setAdapter(adapter);
+        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+
+        recyclerView.setLayoutManager(mLayoutManager);
         textViewCompartilhar = view.findViewById(R.id.textCompartilhar);
         textViewCompartilhar.setOnClickListener(v -> compartilhar());
 

@@ -1,4 +1,4 @@
-package com.cooperativa.ideias.ascender.ecoponto.Utils;
+package com.cooperativa.ideias.ascender.ecoponto.utils;
 
 public class EventObject {
 
