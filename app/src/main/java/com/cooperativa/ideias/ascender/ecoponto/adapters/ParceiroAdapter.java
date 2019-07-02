@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.cooperativa.ideias.ascender.ecoponto.R;
@@ -58,6 +59,7 @@ public class ParceiroAdapter extends RecyclerView.Adapter<ParceiroAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView imageView;
+        private RelativeLayout relativeLayout;
 
         public ViewHolder(View itemView) {
 
@@ -67,7 +69,7 @@ public class ParceiroAdapter extends RecyclerView.Adapter<ParceiroAdapter.ViewHo
                 itemView.setNestedScrollingEnabled(true);
             }
             imageView = itemView.findViewById(R.id.imageView);
-
+            relativeLayout = itemView.findViewById(R.id.relative);
         }
     }
 }
