@@ -19,7 +19,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+
+        android:theme="@style/AppTheme" tools:replace="android:appComponentFactory"
+        android:appComponentFactory="whateverString">
         <activity android:name=".activitys.ProjetarActivity"></activity>
         <!-- Fazer a troca de tags iniciais para laucher correto do app. Apenas realizando teste com viewpager -->
         <!-- MainActivity por ViewPagerCards... -->
@@ -79,7 +81,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-4036318734376935~9692211326" />
+            android:value="@string/app_id"/>
     </application>
 
 </manifest>

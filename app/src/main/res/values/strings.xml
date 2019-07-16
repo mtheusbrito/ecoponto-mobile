@@ -76,8 +76,8 @@
     <string name="title_activity_maps_nsr">Map</string>
     <string name="title_activity_maps_clt">Map</string>
 
-    <string name="banner_ad_unit_id">ca-app-pub-4036318734376935/2022261408</string>
 
+    <string name="app_id">ca-app-pub-4036318734376935~9692211326</string>
 
     <string name="title_activity_main3">Main3Activity</string>
     <string name="swipe_left_to_nfirst_view">Anterior</string>
@@ -206,6 +206,8 @@
     <string name="o_que_o_ecoponto_text">O que é o Ecoponto?</string>
     <string name="text_informações">Ecoponto é um aplicativo que contém informações específicas sobre os serviços de coletas seletivas de certas cidades. O aplicativo dispõe de informes básicos para os dependentes do projeto, contendo basicamente um conjunto de informações relacionadas ao serviço sustentável prestado. Com a possibilidade de alterações e melhorias, enfrenta constantes atualizações que tendem a melhor atender aos consumidores. \nSeu objetivo é levar o consumidor deste serviço até os pontos de coleta, facilitando assim o trabalho de quem se disponibiliza a participar das campanhas. O intuito principal é divulgar a ideia e incentivar a prática ambientalista ajudando assim os que dependem dos resíduos que são depositados e também a natureza. Espera-se que esse projeto possa beneficiar os cidadãos de Itaperuna, dando suporte para todos os dependentes dos serviços públicos de coleta seletiva. É esperado que os transtornos existentes para localizar os pontos acabem ou reduzam-se consideravelmente, evitando assim, longas esperas de caminhões, risco de atrasos e demais obstáculos enfrentados.</string>
     <string name="projetar">Projetar</string>
+    <string name="banner_id">ca-app-pub-4036318734376935/8678677088</string>
+    <string name="unitId1">ca-app-pub-4036318734376935/8678677088</string>
     <array name="estados">
         <item>RJ</item>
         <item>MG</item>
