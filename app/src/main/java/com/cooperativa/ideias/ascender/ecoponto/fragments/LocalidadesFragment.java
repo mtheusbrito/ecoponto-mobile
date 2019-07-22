@@ -3,24 +3,40 @@ package com.cooperativa.ideias.ascender.ecoponto.fragments;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
+import com.cooperativa.ideias.ascender.ecoponto.activitys.MainActivity;
 import com.cooperativa.ideias.ascender.ecoponto.dao.ConfiguracoesFirebase;
 import com.cooperativa.ideias.ascender.ecoponto.adapters.LocalidadeAdapter;
+import com.cooperativa.ideias.ascender.ecoponto.models.Cidade;
+import com.cooperativa.ideias.ascender.ecoponto.models.Estado;
 import com.cooperativa.ideias.ascender.ecoponto.models.Ponto;
+import com.cooperativa.ideias.ascender.ecoponto.utils.ConstantsUtils;
+import com.cooperativa.ideias.ascender.ecoponto.utils.FragmentUtils;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.Query;
@@ -28,6 +44,7 @@ import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LocalidadesFragment extends Fragment implements OnBackPressed {
     private RecyclerView recyclerView;
@@ -35,6 +52,9 @@ public class LocalidadesFragment extends Fragment implements OnBackPressed {
     private LocalidadeAdapter adapter;
     private ProgressBar progressBar;
 
+    private Bundle bundle;
+    private Cidade cidade;
+    private GoogleMap mMap;
     //Variaveis para AdMobi
     private AdView adView;
 
@@ -42,12 +62,23 @@ public class LocalidadesFragment extends Fragment implements OnBackPressed {
 
 
 
+    //Instanciando objetos na classe Localidades...
+    public static Fragment newInstance(Cidade cidade) {
+        LocalidadesFragment localidadesFragment = new LocalidadesFragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(ConstantsUtils.CIDADE, cidade);
+        localidadesFragment.setArguments(bundle);
+        return localidadesFragment;
+
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.v2_localidades_fragment, container, false);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
-        getActivity().setTitle("Localidades");
+         //((AppCompatActivity) getActivity()).getSupportActionBar().show();
+        //  getActivity().setTitle("Localidades");
 //        MobileAds.initialize(getActivity(),"ca-app-pub-4036318734376935~9692211326");
         initView(view);
         preencherLista();
@@ -91,6 +122,7 @@ public class LocalidadesFragment extends Fragment implements OnBackPressed {
         recyclerView.setAdapter(adapter);
     }
 
+
     private void initView(View view) {
         progressBar = view.findViewById(R.id.progressBar);
         recyclerView = view.findViewById(R.id.recyclerView);
@@ -108,9 +140,8 @@ public class LocalidadesFragment extends Fragment implements OnBackPressed {
         admobAds();
 
 
-
-
     }
+
 
     private void admobAds() {
 
@@ -146,6 +177,16 @@ public class LocalidadesFragment extends Fragment implements OnBackPressed {
         super.onDestroy();
         if (adView != null) {
             adView.pause();
+
+        }
+    }
+
+    //retornando a cidade escolhida no spinner da classe Main
+    private void getCidade() {
+        bundle = getArguments();
+        if (bundle != null) {
+            cidade = bundle.getParcelable(ConstantsUtils.CIDADE);
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(cidade.getLatitude()), Double.parseDouble(cidade.getLongitude())), 15));
 
         }
     }

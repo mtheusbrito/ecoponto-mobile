@@ -7,23 +7,22 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".utils.App"
         android:allowBackup="true"
+        android:appComponentFactory="whateverString"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-
-        android:theme="@style/AppTheme" tools:replace="android:appComponentFactory"
-        android:appComponentFactory="whateverString">
-        <activity android:name=".activitys.ProjetarActivity"></activity>
-        <!-- Fazer a troca de tags iniciais para laucher correto do app. Apenas realizando teste com viewpager -->
+        android:theme="@style/AppTheme"
+        tools:replace="android:appComponentFactory">
+        <activity android:name=".activitys.MainAxuiliar"></activity>
+        <activity android:name=".activitys.ProjetarActivity" /> <!-- Fazer a troca de tags iniciais para laucher correto do app. Apenas realizando teste com viewpager -->
         <!-- MainActivity por ViewPagerCards... -->
         <!-- <activity android:name=".ViewPagerCards"> -->
         <!-- </activity> -->
@@ -81,7 +80,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/app_id"/>
+            android:value="@string/app_id" />
     </application>
 
 </manifest>

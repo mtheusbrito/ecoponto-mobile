@@ -1,11 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?android:selectableItemBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.Toolbar
+        app:title="Localidades"
+        android:id="@+id/toolbarMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/v2colorPrimary"
+        app:titleTextColor="@android:color/white">
+
+        <LinearLayout
+            android:id="@+id/linearSpinners"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textEstado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Estado:"
+                android:textColor="@android:color/white" />
+
+            <Spinner
+                android:id="@+id/spinnerEstados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/white"
+                android:hint="Estado" />
+
+            <TextView
+                android:id="@+id/textCidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Cidade:"
+                android:textColor="@android:color/white" />
+
+            <Spinner
+
+                android:id="@+id/spinnerCidades"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/white"
+                android:hint="Cidade" />
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+<LinearLayout
     android:orientation="horizontal"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
     <ImageView
         android:layout_marginLeft="10dp"
         android:layout_gravity="center_vertical"
@@ -41,8 +97,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-
-
     </LinearLayout>
-
 </LinearLayout>

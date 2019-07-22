@@ -26,7 +26,7 @@ public class LocalidadeAdapter extends RecyclerView.Adapter<LocalidadeAdapter.Vi
     private FragmentActivity activity;
     private RecyclerView recyclerView;
 
-
+    //Passando o construtor da classe...
     public LocalidadeAdapter(FragmentActivity activity, List<Ponto>  pontos, RecyclerView recyclerView) {
         this.pontos = pontos;
         this.activity = activity;
