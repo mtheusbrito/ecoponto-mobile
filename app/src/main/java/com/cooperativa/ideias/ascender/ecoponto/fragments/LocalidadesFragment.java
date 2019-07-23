@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
 import com.cooperativa.ideias.ascender.ecoponto.activitys.MainActivity;
@@ -45,6 +46,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class LocalidadesFragment extends Fragment implements OnBackPressed {
     private RecyclerView recyclerView;
@@ -54,15 +56,8 @@ public class LocalidadesFragment extends Fragment implements OnBackPressed {
 
     private Bundle bundle;
     private Cidade cidade;
-    private GoogleMap mMap;
-    //Variaveis para AdMobi
     private AdView adView;
 
-
-
-
-
-    //Instanciando objetos na classe Localidades...
     public static Fragment newInstance(Cidade cidade) {
         LocalidadesFragment localidadesFragment = new LocalidadesFragment();
         Bundle bundle = new Bundle();
@@ -77,10 +72,9 @@ public class LocalidadesFragment extends Fragment implements OnBackPressed {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.v2_localidades_fragment, container, false);
-         //((AppCompatActivity) getActivity()).getSupportActionBar().show();
-        //  getActivity().setTitle("Localidades");
-//        MobileAds.initialize(getActivity(),"ca-app-pub-4036318734376935~9692211326");
+
         initView(view);
+        getCidade();
         preencherLista();
         return view;
 
@@ -96,9 +90,16 @@ public class LocalidadesFragment extends Fragment implements OnBackPressed {
 
                 try{
                     pontos.clear();
+                    String cidade_nome = cidade.getNome().toLowerCase().replace(" ", "");
+
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Ponto ponto = snapshot.getValue(Ponto.class);
-                        pontos.add(ponto);
+                            if(ponto.getCidade().toLowerCase().replace(" ", "").equals(cidade_nome)){
+                                pontos.add(ponto);
+                            }
+
+
+
 
                     }
 
@@ -186,7 +187,6 @@ public class LocalidadesFragment extends Fragment implements OnBackPressed {
         bundle = getArguments();
         if (bundle != null) {
             cidade = bundle.getParcelable(ConstantsUtils.CIDADE);
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(cidade.getLatitude()), Double.parseDouble(cidade.getLongitude())), 15));
 
         }
     }

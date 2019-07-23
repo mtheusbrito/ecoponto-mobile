@@ -22,13 +22,15 @@ public class Ponto implements Serializable, Parcelable {
     public String url;
     public String latitude;
     public String longitude;
+    public String cidade;
     public Map<String, Dia> dias = new HashMap<>();
 
 
     public Ponto() {
+
     }
 
-    public Ponto(String id, String local, String descricao, String inicio, String termino, String url, String latitude, String longitude, Map<String, Dia> dias) {
+    public Ponto(String id, String local, String descricao, String inicio, String termino, String url, String latitude, String longitude, String cidade,  Map<String, Dia> dias) {
         this.id = id;
         this.local = local;
         this.descricao = descricao;
@@ -37,6 +39,7 @@ public class Ponto implements Serializable, Parcelable {
         this.url = url;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.cidade = cidade;
         this.dias = dias;
     }
 
@@ -49,6 +52,14 @@ public class Ponto implements Serializable, Parcelable {
         url = in.readString();
         latitude = in.readString();
         longitude = in.readString();
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
     public static final Creator<Ponto> CREATOR = new Creator<Ponto>() {

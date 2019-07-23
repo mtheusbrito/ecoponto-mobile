@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cooperativa.ideias.ascender.ecoponto.R;
 import com.cooperativa.ideias.ascender.ecoponto.utils.FragmentUtils;
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView navigation;
     private ArrayList<Cidade> cidades;
     private ArrayList<Estado> estados;
-    private TextView textViewEstado, textViewCidade;
     private LinearLayout linearSpinners;
 
     private boolean Map, Loc, Sob;
@@ -61,9 +61,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.navigation_localidades:
                 Loc= true;
                 toolbar.setVisibility(View.VISIBLE);
-
-                linearSpinners.setVisibility(View.GONE);
-                fragment = new LocalidadesFragment();
+                linearSpinners.setVisibility(View.VISIBLE);
+                fragment = LocalidadesFragment.newInstance(cidade);
                 break;
             case R.id.navigation_sobre:
                 Sob = true;
@@ -106,8 +105,7 @@ public class MainActivity extends AppCompatActivity {
         spinnerEstado = findViewById(R.id.spinnerEstados);
         navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        textViewEstado = findViewById(R.id.textEstado);
-        textViewCidade = findViewById(R.id.textCidade);
+
 
 
     }
@@ -154,7 +152,16 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 cidade = cidadesEstado.get(position);
                 //Passando a referência para exibição do Spinner nas classes...
-                FragmentUtils.replace(MainActivity.this, MapaFragment.newInstance(cidade));
+//
+                if(Loc)
+                {
+                    FragmentUtils.replace(MainActivity.this, LocalidadesFragment.newInstance(cidade));
+
+                }else {
+                    FragmentUtils.replace(MainActivity.this, MapaFragment.newInstance(cidade));
+
+                }
+//
 
 //                    EventBus.getDefault().post(new EventObject(cidade));
                 Log.v("CIDADE", cidade.toString());
@@ -236,6 +243,9 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
 
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.container);
+        if(!Sob){
+            toolbar.setVisibility(View.VISIBLE);
+        }
 
         if (currentFragment instanceof DetalhesFragment) {
             ((DetalhesFragment) currentFragment).onBackPressed();

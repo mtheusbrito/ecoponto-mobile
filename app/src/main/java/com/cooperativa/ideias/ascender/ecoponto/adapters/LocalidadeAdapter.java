@@ -45,6 +45,7 @@ public class LocalidadeAdapter extends RecyclerView.Adapter<LocalidadeAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull LocalidadeAdapter.ViewHolder viewHolder, int i) {
         final Ponto ponto = pontos.get(i);
+        StringBuffer concat = new StringBuffer();
         viewHolder.local.setText(ponto.local);
         viewHolder.horario.setText(ponto.inicio+ " as "+ponto.termino);
         Picasso.get().load(R.drawable.eco_list).transform(new CircleTransform()).into(viewHolder.imageView);
