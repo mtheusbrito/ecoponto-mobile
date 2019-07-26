@@ -1,7 +1,12 @@
 package com.cooperativa.ideias.ascender.ecoponto.activitys;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Estado> estados;
     private LinearLayout linearSpinners;
 
+    public static int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION =1;
+
+
     private boolean Map, Loc, Sob;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -59,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.navigation_localidades:
-                Loc= true;
+                Loc = true;
                 toolbar.setVisibility(View.VISIBLE);
                 linearSpinners.setVisibility(View.VISIBLE);
                 fragment = LocalidadesFragment.newInstance(cidade);
@@ -80,9 +88,6 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-
-
-
     protected void onCreate(Bundle savedInsanceState) {
         super.onCreate(savedInsanceState);
         setContentView(R.layout.v2_main_activity);
@@ -90,10 +95,28 @@ public class MainActivity extends AppCompatActivity {
         setCidades();
         initSpinnerEstado();
 
+   //Metodos RequestPermission para termos de permissão em RunTime...
+        if (ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+
+            } else {
+
+                ActivityCompat.requestPermissions(MainActivity.this,
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+
+            }
+        } else {
+
+        }
+
 
 
     }
-
 
 
     private void initView() {

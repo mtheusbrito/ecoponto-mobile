@@ -1,10 +1,15 @@
 package com.cooperativa.ideias.ascender.ecoponto.fragments;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -42,6 +47,11 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, OnBack
     private Cidade cidade;
 
 
+
+    public static int MY_PERMISSION_LOCATION =1;
+
+
+
     public static Fragment newInstance(Cidade cidade) {
         MapaFragment mapaFragment = new MapaFragment();
         Bundle bundle = new Bundle();
@@ -59,13 +69,18 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, OnBack
         return view;
     }
     private void initView() {
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
-        if(mMap ==null){
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+        if (mMap == null) {
             SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
             mapFragment.getMapAsync(this);
         }
 
+
     }
+
+
+
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
